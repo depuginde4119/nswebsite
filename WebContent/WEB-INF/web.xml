@@ -30,6 +30,15 @@
 	   <url-pattern>/productview</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+	  <servlet-name>contact</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/contactus.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>contact</servlet-name>
+	   <url-pattern>/contactus</url-pattern>
+  </servlet-mapping>
+  
   <error-page>
   <error-code>404</error-code>
   <location>/error/error_404.jsp </location>

@@ -381,4 +381,53 @@ footer .connect .twitter
 }
 
 
+/*contact us page styles*/
+.contact_us_banner
+{
+	background-image: url("../images/contact_us_banner.png");
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position:center;
+	height:200px;
+	
+	margin-top: 1px;
+}
+.contact_us_container
+{
+	
+	margin-top:20px;
+	margin-bottom:2px;
+	height:400px;
+}
+.contact_us_map
+{
+	width:50%;
+	float: left;
+	background:green;
+	height:100%;
+	margin-left:11%;
+}
+.contact_us_address
+{
+	width:35%;
+	float:right;
+	margin-left: 4%;
+}
+.contact_us_location{
+	position: absolute; 
+	bottom: 0;
+}
+
+.greenColor{
+	color: green;
+}
+
+.orangeColor{
+	color:orange;
+}
+
+.topMar10{
+	margin-top: 10px;
+}
+
 
