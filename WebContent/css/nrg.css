@@ -1,0 +1,384 @@
+@CHARSET "ISO-8859-1";
+
+
+a{
+	
+	outline:none;
+	text-decoration:none;
+	}
+body
+	{
+	margin: 0px;
+	border: 0px;
+	}
+#header, #topbar, #homepage, #breadcrumb, #container, #footer, #copyright{
+	position:relative;
+	margin:0 auto 0;
+	display:block;
+	width:100%;
+	}
+
+/* ----------------------------------------------Header-------------------------------------*/
+
+#header{
+	padding	:0px;
+	margin:0px;
+	z-index:1000;
+	background-color:#6DC63F;
+	height: 80px;
+	}
+
+#header #logo{
+	display:block;
+	float:left;
+	width:300px;
+	overflow:hidden;
+	}
+
+#header #logo h1, #header #logo p{
+	margin:0;
+	padding:0;
+	line-height:normal;
+	}
+
+#header #logo h1{
+	font-size:36px;
+	text-transform:uppercase;
+	}
+	
+#header #logo p	{
+font-size: 1.5em;
+font-style: italic;	
+	}
+
+#header h1 a{
+	color:#B2C629;
+	
+	}
+	.userpanel
+	{
+	float: right;
+	padding: 10px;
+	}
+	
+	.greenText
+	{
+	color: #6DC63F;
+	
+	}
+	
+	.whiteText
+	{
+	color: #FFFFFF;
+	}
+	
+	.grayText
+	{
+	color : #7D9269;
+	}
+	
+
+
+/*Search Box CSS*/
+
+
+
+.search {
+    background: url(../images/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #d7d7d7;
+    width:150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search:FOCUS{
+    background: url(./images/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 200px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    
+/* Menu CSS   */
+
+nav { 
+ height: 40px;
+width: 100%;
+color: #FFF;
+border-bottom: 1px solid #FFF;
+background-color: #000000;
+}
+
+
+/**
+Stylesheet for SooperFish by www.SooperThemes.com
+Author: Jurriaan Roelofs
+**/
+
+/* Configuration of menu width */
+html body ul.sf-menu ul,html body ul.sf-menu ul li { 
+  width: 200px;
+}
+
+html body ul.sf-menu ul ul { 
+  margin: 0 0 0 200px;
+}
+
+/* Framework for proper showing/hiding/positioning */
+ul.sf-menu,ul.sf-menu * { 
+  margin: 0;
+  padding: 0;
+}
+
+ul.sf-menu { 
+  display: block;
+  position: relative;
+}
+  
+ul.sf-menu li { 
+  display: block;
+  list-style: none;
+  float: left;
+  position: relative;
+  font-size: 1em;
+}
+  
+ul.sf-menu li:hover { 
+  visibility: inherit; /* fixes IE7 'sticky bug' */ 
+}
+
+ul.sf-menu a { 
+  display: block;
+  position: relative;
+}
+  
+ul.sf-menu ul { 
+  position: absolute;
+  left: 0;
+  width: 150px; 
+  top: auto;
+  left: -999999px;
+}
+  
+ul.sf-menu ul a { 
+  zoom: 1; /* IE6/7 fix */ 
+}
+
+ul.sf-menu ul li { 
+  float: left; /* Must always be floated otherwise there will be a rogue 1px margin-bottom in IE6/7 */
+  width: 150px;
+  font-size: 1em;
+}
+  
+ul.sf-menu ul ul { 
+  top: 0;
+  margin: 0 0 0 150px;
+}
+
+ul.sf-menu li:hover ul,ul.sf-menu li:focus ul,ul.sf-menu li.sf-hover ul, 
+ul.sf-menu ul li:hover ul,ul.sf-menu ul li:focus ul,ul.sf-menu ul li.sf-hover ul,
+ul.sf-menu ul ul li:hover ul,ul.sf-menu ul ul li:focus ul,ul.sf-menu ul ul li.sf-hover ul,
+ul.sf-menu ul ul ul li:hover ul,ul.sf-menu ul ul ul li:focus ul,ul.sf-menu ul ul ul li.sf-hover ul { 
+  left: auto;
+}
+  
+ul.sf-menu li:hover ul ul,ul.sf-menu li:focus ul ul,ul.sf-menu li.sf-hover ul ul,
+ul.sf-menu ul li:hover ul ul,ul.sf-menu ul li:focus ul ul,ul.sf-menu ul li.sf-hover ul ul,
+ul.sf-menu ul ul li:hover ul ul,ul.sf-menu ul ul li:focus ul ul,ul.sf-menu ul ul li.sf-hover ul ul,
+ul.sf-menu ul ul ul li:hover ul ul,ul.sf-menu ul ul ul li:focus ul ul,ul.sf-menu ul ul ul li.sf-hover ul ul { 
+  left: -999999px;
+}
+
+/* autoArrows CSS */
+span.sf-arrow { 
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  display: block;
+  background: url(../images/arrows-white.png) no-repeat 0 0;
+  overflow: hidden; /* making sure IE6 doesn't overflow and expand the box */
+  font-size: 1px;
+}
+
+ul ul span.sf-arrow { 
+  right: 5px;
+  top: 20px;
+  background-position: 0 100%;
+}
+
+/* Theming the menu */
+ul#nav { 
+  float: left;
+}
+
+ul#nav ul { 
+  background: #555;
+  margin-top: 5px;
+  padding-bottom: 15px;
+}
+
+ul#nav li a { 
+  padding: 7px 25px 6px 25px;
+  font: 120% 'Yanone Kaffeesatz', arial, sans-serif;
+  text-decoration: none;
+  color: #888;
+  margin-right: 2px;
+}
+
+ul#nav li a:hover, ul#nav li a:focus, ul#nav li.selected a, ul#nav li.selected a:hover, ul#nav li.selected a:focus { 
+  color: #6DC63F;
+  text-shadow: none;
+}
+
+ul#nav ul li a { 
+  color: #FFF;
+}
+
+ul#nav ul li a:hover { 
+  color: ;
+  margin-right: 2px;
+}
+
+
+/**/
+
+.bodyContent
+	{
+	min-height: 600px;
+	background-color: white;
+	
+	}
+	
+	.menuContainer
+	{
+	width:100%;
+	height:40px;
+	background-color: #000;
+	}
+
+
+/* CSS for Footer  */
+
+.grid:after {
+    content: "";
+    display: table;
+    clear: both;
+}.clearfix:after {
+    display: block;
+    visibility: hidden;
+    height: 0px;
+    clear: both;
+    content: ".";
+}.centered {
+    margin: 0px auto;
+}.constrain {
+    max-width: 1140px;
+}.grid-pad {
+    padding-left: 10px;
+}.grid {
+    width: 100%;
+    margin: 0px auto;
+}.col-1-5 {
+    width: 20%;
+}[class*="col-"] {
+    float: left;
+    padding-right: 10px;
+}
+footer ul {
+    list-style: none outside none;
+}
+
+footer ul li,body > footer ul li a {
+    line-height: 1.3em;
+    font-size: 0.9em;
+    color: #888;
+    text-decoration: none;
+}.col-1-5 {
+    width: 20%;
+}
+ footer {
+    background-color: #000;
+    padding-top: 30px;
+}
+
+footer .sub-footer {
+    width: 100%;
+    background-color: #222;
+    color: #888;
+    padding: 10px;
+    margin-top: 20px;
+}
+ footer .sub-footer p {
+    float: left;
+    padding: 10px 0px;
+}
+footer .sub-footer a {
+    text-decoration: none;
+    color: #888;
+}
+footer .sub-footer p strong {
+    font-family: Plantin,"Plantin Pro","Book Antiqua",Georgia,"Times New Roman",serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-left: 3px;
+    color: #CCC;
+}
+footer .sub-footer div > a {
+    color: #888;
+    float: right;
+    text-decoration: none;
+    
+    padding: 10px 34px 10px 10px;
+}
+
+footer .connect a 
+{
+	background: url(../images/sprite_social.png) 0 0 no-repeat;
+display: block;
+height: 30px;
+text-indent: -9999px;
+width: 30px;
+opacity: .7;
+padding: 3px 0px;
+}
+
+footer .connect a:HOVER
+{
+	opacity : 1;
+}
+
+footer .connect .facebook 
+{
+	background-position: -40px 0;
+}
+
+footer .connect .linkedin 
+{
+	background-position: 0 0;
+}
+
+footer .connect .twitter 
+{
+	background-position: -80px 0;
+}
+
+
+

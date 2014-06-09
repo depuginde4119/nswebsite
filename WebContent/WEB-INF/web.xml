@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>NRGSavers</display-name>
+  <welcome-file-list>
+    <welcome-file>home.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<!-- JSP Configuration, which can directly handled -->
+  <servlet>
+	  <servlet-name>homes</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/home.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>homes</servlet-name>
+	   <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+	  <servlet-name>productview</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/products.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>productview</servlet-name>
+	   <url-pattern>/productview</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  <error-code>404</error-code>
+  <location>/error/error_404.jsp </location>
+  </error-page>
+  
+
+
+<!-- Servlet Configuration details -->
+  <servlet>
+	  <servlet-name>product</servlet-name>
+	  <servlet-class>controller.ProductUtil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>product</servlet-name>
+	   <url-pattern>/product</url-pattern>
+  </servlet-mapping>
+
+  
+  
+</web-app>
