@@ -39,6 +39,16 @@
 	   <url-pattern>/contactus</url-pattern>
   </servlet-mapping>
   
+  
+    <servlet>
+	  <servlet-name>professional</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/professional.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>professional</servlet-name>
+	   <url-pattern>/professional</url-pattern>
+  </servlet-mapping>
+  
   <error-page>
   <error-code>404</error-code>
   <location>/error/error_404.jsp </location>

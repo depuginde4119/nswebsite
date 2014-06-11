@@ -29,7 +29,7 @@
           <li class="selected"><a href="index.html">About Us</a></li>
           <li><a href="examples.html">Our Clients</a></li>
           <li><a href="product">Products</a></li>
-          <li><a href="page.html">Professional Installation</a></li>
+          <li><a href="professional">Professional Installation</a></li>
           <li><a href="another_page.html">Finance</a></li>
           <li><a href="another_page.html">News</a></li>
           <li><a href="contactus">Contact Us</a></li>
