@@ -5,27 +5,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Products</title>
 <link rel="stylesheet" type="text/css" href="./css/nrg.css">
 </head>
 <body>
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 
 <div class="bodyContent">
- <c:forEach items="${products}" var="product">
-        Id : ${product.id} <br/>
-        Name : ${product.name} <br/>
- </c:forEach>
- 
- <div class="grid">
- 
- 	<div class=""></div>
- 	<div class=""></div>
- 
- </div>
- 
- 
+<div class="constrain banner centered product_banner " >
 </div>
+<div class="body_container constrain centered ">
+
+ <c:forEach items="${products}" var="product">
+<%--         Id : ${product.id} <br/> --%>
+<%--         Name : ${product.name} <br/> --%>
+        
+        <div class="width100 productDetails">
+	        <div class="leftGrid">
+	        	<img src="../images/product/${product.image}" class="width100">
+	        </div>
+        <div class="rightGrid productDetails">
+           <div class="name"> Name : ${product.name}</div>
+           <div class="description"> Description</div> 
+           <div> ${product.name}</div>
+           <div> Price : ${product.name}</div>
+           <input type="button" value="ADD TO CART" onclick="addToCart('${product.id}')">
+           
+        </div>
+        
+        </div>
+        
+ </c:forEach>
+
+</div>
+
+
+</div>
+
 <%@include file="/WEB-INF/jsp/footer.jsp" %>
 
 

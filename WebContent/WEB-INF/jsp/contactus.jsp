@@ -35,9 +35,9 @@ google.maps.event.addDomListener(window, "load", initialize);
 
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
-<div class="constrain contact_us_banner centered " >
+<div class="constrain banner centered contactus_banner " >
 </div>
-<div class="contact_us_container constrain centered ">
+<div class="body_container constrain centered ">
 <div class="contact_us_map" id="mapDiv"></div>
 <div class="contact_us_address">
 	<div class="orangeColor">Contact Us</div>
