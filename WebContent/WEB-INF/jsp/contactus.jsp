@@ -32,11 +32,7 @@ google.maps.event.addDomListener(window, "load", initialize);
 </script>
 </head>
 <body>
-<%
 
-request.getSession().setAttribute("loggedUser","Laxmi kanth");
-
-%>
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
 <div class="constrain contact_us_banner centered " >

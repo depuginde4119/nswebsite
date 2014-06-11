@@ -12,7 +12,7 @@
 <body>
 <%
 
-request.getSession().setAttribute("loggedUser","Laxmi kanth");
+//request.getSession().setAttribute("loggedUser","Laxmi kanth");
 
 %>
 <%@include file="/WEB-INF/jsp/header.jsp" %>
