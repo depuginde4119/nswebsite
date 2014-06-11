@@ -14,7 +14,7 @@
 
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
-<div class="constrain contact_us_banner centered " >
+<div class="constrain banner centered " >
 </div>
 <div class="contact_us_container constrain centered ">
 <div id="form_container">
