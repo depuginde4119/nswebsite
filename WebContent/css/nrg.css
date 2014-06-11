@@ -475,3 +475,7 @@ footer .connect .twitter
 	height:100px;
 	
 }
+
+#form_container form div{
+	padding:5px;
+}

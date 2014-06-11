@@ -8,73 +8,145 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./css/nrg.css">
-<link rel="stylesheet" type="text/css" href="./css/form.css">
+
+  <script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+          <script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/jquery-form.js"></script>
+ <script type="text/javascript">
+        $(document).ready(function(){
+        
+		$("#registerForm").validate({
+				rules : {
+					name : {
+						required : true
+					},
+
+					phone : {
+						required : true
+					},
+					email : {
+						required : true,
+						email : true,
+ 						checkUserName : true
+					},
+					
+					password : {
+						required : true
+					},
+					cpassword : {
+						equalTo : "#password"
+					}
+
+				},
+				messages : {
+					name : {
+						required : "Name is required"
+					},
+					
+					phone : {
+						required : "Phone number is required"
+					},
+					email : {
+						required : " Email is required",
+						email : "Enter valid email"
+					},
+					password : {
+						required : "Password is required"
+					},
+					cpassword : {
+						equalTo : "Passwords did not match"
+					}
+
+				},
+				errorElement : "div",
+				errorPlacement : function(error, element) {
+					element.before(error);
+					offset = element.offset();
+					error.css('left', offset.left);
+					error.css('bottom', offset.top - element.outerHeight());
+				},
+				submitHandler : function(form) {
+					$(form).ajaxSubmit({
+						url : "user/userRegistration",
+						type : "POST",
+						data : $("#registerForm").serialize(),
+						success : function(msg) {
+							alert('Account Added Successfully');
+							$("#registerForm").resetForm();
+							
+						},
+						error : function(e) {
+							alert("Please try again later");
+						}
+					});
+				}
+			});
+			$.validator.addMethod("checkUserName", function(value, element) {
+				var result = false;
+				$.ajax({
+					type : "POST",
+					async : false,
+					data : {"email":$("#email").val()},
+					url : "user/check_email_availability",
+					success : function(data) {
+						result = (data == 'Y') ? false : true;
+					},
+					error : function(e) {
+						alert("Please try again later");
+					}
+				});
+
+				return result;
+			}, "This email is already taken! Try another.");
+		});
+	</script>
+   
 </head>
 <body>
 
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
-<div class="constrain banner centered " >
+<div class="constrain contactus_banner banner centered " >
 </div>
 <div class="contact_us_container constrain centered ">
-<div id="form_container">
+<div id="form_container" style="padding:50px;">
 	
 		
-		<form id="form_858520" class="appnitro"  method="post" action="">
-									
-			<ul >
-			
-					<li id="li_1" >
-		<label class="description" for="element_1">Name </label>
-		<span>
-			<input id="element_1_1" name= "element_1_1" class="element text" maxlength="255" size="8" value=""/>
-			<label>First</label>
-		</span>
-		<span>
-			<input id="element_1_2" name= "element_1_2" class="element text" maxlength="255" size="14" value=""/>
-			<label>Last</label>
-		</span> 
-		</li>		<li id="li_3" >
-		<label class="description" for="element_3">Phone </label>
-		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_3_1">(###)</label>
-		</span>
-		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_3_2">###</label>
-		</span>
-		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_3_3">####</label>
-		</span>
-		 
-		</li>		<li id="li_2" >
-		<label class="description" for="element_2">Email </label>
-		<div>
-			<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_4" >
-		<label class="description" for="element_4">Password </label>
-		<div>
-			<input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_5" >
-		<label class="description" for="element_5">Re-Type Password </label>
-		<div>
-			<input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>
-			
-					<li class="buttons">
-			    <input type="hidden" name="form_id" value="858520" />
-			    
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-		</li>
-			</ul>
-		</form>	
+		<form id="registerForm" name="registerForm" method="post" action="" autocomplete="off">
+		<table style="margin-left: auto;margin-right: auto;">
+		<tr><td>Name <font color="red">*</font></td>
+		<td>:</td>
+		<td><input type="text" id="name" name="name"/></td>
+		</tr>
+		<tr>
+		<td>Phone <font color="red">*</font></td>
+		<td>:</td>
+		<td><input type="text" id="phone" name="phone"/></td>
 		
-	</div>
+		</tr>
+		<tr>
+		<td>E-mail <font color="red">*</font></td>
+		<td>:</td>
+		<td><input type="text" id="email" name="email"/></td>
+		</tr>
+		<tr>
+		<td>Password <font color="red">*</font></td>
+		<td>:</td>
+		<td><input type="password" id="password" name="password"/></td>
+		</tr>
+		<tr>
+		<td>Re-Type Password <font color="red">*</font></td>
+		<td>:</td>
+		<td><input type="password" id="cpassword" name="cpassword"/></td>
+		</tr>
+		<tr>
+		
+		<td colspan="3" style="text-align: center;"><input type="submit"/></td>
+		</tr>
+		
+		
+	</table>
+	</form>
 </div>
 <%@include file="/WEB-INF/jsp/footer.jsp" %>
 </body>
