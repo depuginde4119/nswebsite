@@ -382,9 +382,9 @@ footer .connect .twitter
 
 
 /*contact us page styles*/
-.contact_us_banner
+.banner
 {
-	background-image: url("../images/contact_us_banner.png");
+	
 	background-size: 100% 100%;
 	background-repeat:no-repeat;
 	background-position:center;
@@ -392,7 +392,17 @@ footer .connect .twitter
 	
 	margin-top: 1px;
 }
-.contact_us_container
+
+.contactus_banner
+{
+	background-image: url("../images/contact_us_banner.png");
+}
+
+.product_banner
+{
+	background-image: url("../images/contact_us_banner.png");
+}
+.body_container
 {
 	
 	margin-top:20px;
@@ -431,3 +441,37 @@ footer .connect .twitter
 }
 
 
+.width100
+{
+	width: 100%;
+	
+}
+
+.leftGrid
+{
+	width: 49%;
+	float: left;
+	margin-left: 1px;
+	
+}
+
+.rightGrid
+{
+	width: 49%;
+	float: right;
+	margin-left: 1px;
+	
+}
+
+.height100
+{
+	height: 100%;
+}
+
+
+.productDetails img
+{
+	width: 100px;
+	height:100px;
+	
+}
