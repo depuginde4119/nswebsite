@@ -25,7 +25,7 @@ body
 	margin:0px;
 	z-index:1000;
 	background-color:#6DC63F;
-	height: 80px;
+	height: 110px;
 	}
 
 #header #logo{
@@ -451,6 +451,11 @@ footer .connect .twitter
 	width: 100%;
 	
 }
+.width50
+{
+	width: 50%;
+	
+}
 
 .leftGrid
 {
@@ -478,5 +483,33 @@ footer .connect .twitter
 {
 	width: 100px;
 	height:100px;
+	
+}
+
+
+.row
+{
+	padding: 2px;
+}
+
+.row  label
+{
+	margin-right: 20px;	
+}
+
+.row input
+{
+	width: 250px;		
+}
+
+.hide
+{
+	
+	display: none;
+}
+
+.show
+{
+	display: block;
 	
 }

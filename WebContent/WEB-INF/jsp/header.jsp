@@ -10,7 +10,7 @@
 	<div class="userpanel">
 	
 	<c:if test="${empty sessionScope.loggedUser}">
-	Not Logged
+	<a style="padding-left: 5px;">Login</a><a href="newuser" style="padding-left: 5px;">Register</a>
 	</c:if>
 	
 	<c:if test="${!empty sessionScope.loggedUser}">

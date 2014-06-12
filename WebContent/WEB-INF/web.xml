@@ -39,14 +39,13 @@
 	   <url-pattern>/contactus</url-pattern>
   </servlet-mapping>
   
-  
-    <servlet>
-	  <servlet-name>professional</servlet-name>
-	  <jsp-file> /WEB-INF/jsp/professional.jsp </jsp-file>
+  <servlet>
+	  <servlet-name>register</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/register.jsp </jsp-file>
   </servlet>
   <servlet-mapping>
-	  <servlet-name>professional</servlet-name>
-	   <url-pattern>/professional</url-pattern>
+	  <servlet-name>register</servlet-name>
+	   <url-pattern>/newuser</url-pattern>
   </servlet-mapping>
   
   <error-page>
