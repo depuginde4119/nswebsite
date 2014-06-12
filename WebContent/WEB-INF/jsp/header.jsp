@@ -10,12 +10,12 @@
 	<div class="userpanel">
 	
 	<c:if test="${empty sessionScope.loggedUser}">
-	<a style="padding-left: 5px;">Login</a><a href="newuser" style="padding-left: 5px;">Register</a>
+	<a href="login" style="padding-left: 5px;">Login</a><a href="newuser" style="padding-left: 5px;">Register</a>
 	</c:if>
 	
 	<c:if test="${!empty sessionScope.loggedUser}">
-	Logged as  <a href="editProifile?<c:out value="${sessionScope.loggedUser}"/>"><c:out value="${sessionScope.loggedUser}"/></a>
-	<br> 
+	Logged as  <a href="editProifile?<c:out value="${sessionScope.loggedUser}"/>" style="padding-left: 5px;"><c:out value="${sessionScope.loggedUser}"/></a>
+	<a href="user/userLogout">Logout</a><br> 
 	
 	<input name="q" class="search" type="text" size="40" placeholder="Search..." />
 	

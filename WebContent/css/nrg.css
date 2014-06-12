@@ -486,6 +486,10 @@ footer .connect .twitter
 	
 }
 
+#form_container form div{
+	padding:5px;
+}
+
 
 .row
 {

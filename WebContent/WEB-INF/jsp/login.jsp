@@ -15,46 +15,22 @@
  <script type="text/javascript">
         $(document).ready(function(){
         
-		$("#registerForm").validate({
+		$("#loginForm").validate({
 				rules : {
-					name : {
+					username : {
 						required : true
 					},
-
-					phone : {
-						required : true
-					},
-					email : {
-						required : true,
-						email : true,
- 						checkUserName : true
-					},
-					
 					password : {
 						required : true
-					},
-					cpassword : {
-						equalTo : "#password"
 					}
 
 				},
 				messages : {
-					name : {
-						required : "Name is required"
-					},
-					
-					phone : {
-						required : "Phone number is required"
-					},
-					email : {
-						required : " Email is required",
-						email : "Enter valid email"
+					username : {
+						required : "Enter UserName"
 					},
 					password : {
-						required : "Password is required"
-					},
-					cpassword : {
-						equalTo : "Passwords did not match"
+						required : "Enter Password"
 					}
 
 				},
@@ -67,12 +43,18 @@
 				},
 				submitHandler : function(form) {
 					$(form).ajaxSubmit({
-						url : "user/userRegistration",
+						url : "user/userLogin",
 						type : "POST",
-						data : $("#registerForm").serialize(),
+						data : $("#loginForm").serialize(),
 						success : function(msg) {
-							alert('Account Added Successfully');
-							$("#registerForm").resetForm();
+							if(msg == "Success")
+								{
+								window.location.href="./home";
+								}
+							else{
+								alert("Enter Correct Username & Password ");
+							}
+							$("#loginForm").resetForm();
 							
 						},
 						error : function(e) {
@@ -81,23 +63,7 @@
 					});
 				}
 			});
-			$.validator.addMethod("checkUserName", function(value, element) {
-				var result = false;
-				$.ajax({
-					type : "POST",
-					async : false,
-					data : {"email":$("#email").val()},
-					url : "user/check_email_availability",
-					success : function(data) {
-						result = (data == 'Y') ? false : true;
-					},
-					error : function(e) {
-						alert("Please try again later");
-					}
-				});
-
-				return result;
-			}, "This email is already taken! Try another.");
+		
 		});
 	</script>
    
@@ -112,36 +78,22 @@
 <div id="form_container" style="padding:50px;">
 	
 		
-		<form id="registerForm" name="registerForm" method="post" action="" autocomplete="off">
+		<form id="loginForm" name="loginForm" method="post" action="" autocomplete="off">
 		<table style="margin-left: auto;margin-right: auto;">
-		<tr><td>Name <font color="red">*</font></td>
+		<tr><td>UserName </td>
 		<td>:</td>
-		<td><input type="text" id="name" name="name"/></td>
+		<td><input type="text" id="username" name="username"/></td>
 		</tr>
-		<tr>
-		<td>Phone <font color="red">*</font></td>
-		<td>:</td>
-		<td><input type="text" id="phone" name="phone"/></td>
 		
-		</tr>
 		<tr>
-		<td>E-mail <font color="red">*</font></td>
-		<td>:</td>
-		<td><input type="text" id="email" name="email"/></td>
-		</tr>
-		<tr>
-		<td>Password <font color="red">*</font></td>
+		<td>Password </td>
 		<td>:</td>
 		<td><input type="password" id="password" name="password"/></td>
 		</tr>
-		<tr>
-		<td>Re-Type Password <font color="red">*</font></td>
-		<td>:</td>
-		<td><input type="password" id="cpassword" name="cpassword"/></td>
-		</tr>
+		
 		<tr>
 		
-		<td colspan="3" style="text-align: center;"><input type="submit"/></td>
+		<td colspan="3" style="text-align: center;"><input type="submit" value="Login"/></td>
 		</tr>
 		
 		
