@@ -64,6 +64,67 @@
 				}
 			});
 		
+		$("#forgotPasswordForm").validate({
+			rules : {
+				username : {
+					required : true
+				}
+
+			},
+			messages : {
+				username : {
+					required : "Enter UserName"
+				}
+
+			},
+			errorElement : "div",
+			errorPlacement : function(error, element) {
+				element.before(error);
+				offset = element.offset();
+				error.css('left', offset.left);
+				error.css('bottom', offset.top - element.outerHeight());
+			},
+			submitHandler : function(form) {
+				$(form).ajaxSubmit({
+					url : "user/forgotPassword",
+					type : "POST",
+					data : $("#forgotPasswordForm").serialize(),
+					success : function(msg) {
+						$("#forgotPasswordResultDiv").show();
+						if(msg == "Y")
+							{
+							$("#forgotPasswordResultDiv").html("<font color='green'>Temporary Password has been sent to your mail.</font>");
+							//window.location.href="./home";
+							}
+						else{
+							//alert("Enter Correct Username & Password ");
+							$("#forgotPasswordResultDiv").html("<font color='red'>This email is not registerd with us.</font>");
+						}
+						//$("#forgotPasswordForm").resetForm();
+						
+					},
+					error : function(e) {
+						alert("Please try again later");
+					}
+				});
+			}
+		});
+		$("#forgotPasswordForm #username").focus(function(){
+			var visible = $("#forgotPasswordResultDiv").is(":visible");
+			if(visible)
+				{
+				$("#forgotPasswordResultDiv").hide();
+				}
+		});
+		$("#forgotPassword").click(function(){  
+			$("#loginForm").hide();
+			$("#forgotPasswordForm").show();
+		});
+		$("#backToLogin").click(function(){
+			$("#loginForm").show();
+			$("#forgotPasswordForm").hide();
+		});
+		
 		});
 	</script>
    
@@ -95,9 +156,40 @@
 		
 		<td colspan="3" style="text-align: center;"><input type="submit" value="Login"/></td>
 		</tr>
+		<tr>
+		<td colspan="3"></td>
+		</tr>
+		<tr>
+		<td colspan="3"><a id="forgotPassword" class="cursor_pointer">Forgot Password ?</a></td>
+		</tr>
+		
+	</table>
+	</form>
+	
+	<form id="forgotPasswordForm" name="forgotPasswordForm"  class="invisible" method="post" action="" autocomplete="off">
+		<table style="margin-left: auto;margin-right: auto;">
+		<tr><td>UserName </td>
+		<td>:</td>
+		<td><input type="text" id="username" name="username"/></td>
+		</tr>
+		
+		<tr>
+		
+		<td colspan="3" style="text-align: center;"><input type="submit" value="Submit"/></td>
+		</tr>
+		<tr>
+		<td colspan="3"></td>
+		</tr>
+		<tr>
+		<td colspan="3"><a id="backToLogin" class="cursor_pointer">Login</a></td>
+		</tr>
+		<tr>
+		<td colspan="3"></td>
+		</tr>
 		
 		
 	</table>
+	<div id="forgotPasswordResultDiv" style="margin:0 auto;" class="invisible "></div>
 	</form>
 </div>
 <%@include file="/WEB-INF/jsp/footer.jsp" %>

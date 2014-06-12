@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nrg.common.Constants;
+import com.nrg.common.MailTemplate;
+import com.nrg.common.RandomStringGenerator;
+import com.nrg.common.SendMail;
 
 import model.ProductCRUD;
 import model.UserCRUD;
+import DTO.MailDto;
 import DTO.NewUser;
 import DTO.Product;
 
@@ -99,6 +103,37 @@ public class UserUtil extends HttpServlet{
 				//RequestDispatcher rd=req.getRequestDispatcher("/home");
 
 				//rd.forward(req, resp);
+			}
+			if(uri.equals(Constants.FORGOT_PASSWORD_PATH))
+			{
+				NewUser userDto = new NewUser();
+
+				userDto.setEmail(req.getParameter("username"));
+
+			
+				boolean emailAvailability =	new UserCRUD().checkEmailAvailability(userDto);
+				String response ;
+				if(emailAvailability)
+				{
+					response = "Y";
+					//create temporary password and send email
+					String tempPassword = RandomStringGenerator.generateRandomString();
+					System.out.println(tempPassword);
+					userDto.setTempPassword(tempPassword);
+					new UserCRUD().setTempPassword(userDto);
+					MailDto maildto = MailTemplate.tempPasswordTemplate(userDto);
+					
+					SendMail.send(maildto);
+					
+				}
+				else
+				{
+					response = "N";
+				}
+
+				resp.getWriter().print(response);
+
+
 			}
 		}catch(Exception e)
 		{

@@ -174,4 +174,34 @@ public class UserCRUD implements CRUD{
         }
 	}
 
+	public void setTempPassword(DBComponent dbComponent) {
+		NewUser userDto = (NewUser) dbComponent;
+
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = 
+                "UPDATE User SET TemporaryPassword = ? WHERE EmailId = ? ";
+                
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userDto.getTempPassword());
+            ps.setString(2, userDto.getEmail());
+           
+            ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+           
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+	}
+
 }

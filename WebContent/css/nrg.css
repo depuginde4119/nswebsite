@@ -479,3 +479,10 @@ footer .connect .twitter
 #form_container form div{
 	padding:5px;
 }
+
+.invisible{
+	display:none;
+}
+.cursor_pointer{
+	cursor:pointer;
+}
