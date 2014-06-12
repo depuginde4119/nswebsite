@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,9 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ProductCRUD;
+import DTO.MailDto;
+import DTO.NewUser;
 import DTO.Product;
 
 import com.nrg.common.Constants;
+import com.nrg.common.MailTemplate;
+import com.nrg.common.SendMail;
 
 public class ProfessionalUtil extends HttpServlet {
 	@Override
@@ -44,7 +50,7 @@ public class ProfessionalUtil extends HttpServlet {
 			switch(service)
 			{
 				case  "1":
-					String productID=(String) req.getParameter("product_1");
+					String productID=(String) req.getParameter("product");
 					int units=Integer.parseInt(req.getParameter("units_1"));
 					ProductCRUD productCRUD= new ProductCRUD();
 					Product product=productCRUD.getProduct(productID);
@@ -113,13 +119,18 @@ public class ProfessionalUtil extends HttpServlet {
 		{
 			
 //			data:"quote="+quotation+"&service="+serviceName+"&name="+username+"&email"+email+"&contact="+contact,\
+			Map<String ,String> details= new HashMap<String,String>();
+			details.put("user", req.getParameter("name").toString());
+			details.put("email", req.getParameter("email").toString());
+			details.put("contact", req.getParameter("contact").toString());
+			details.put("contact", req.getParameter("contact").toString());
+			details.put("quote", req.getParameter("quote").toString());
+			details.put("service", req.getParameter("service").toString());
 			
-			String name=(String) req.getParameter("name");
-			String email=(String) req.getParameter("email");
-			String contact=(String) req.getParameter("contact");
-			String service=(String) req.getParameter("service");
-			String quote=(String) req.getParameter("quote");
-			
+			MailDto maildto=MailTemplate.quoteEmail(details);
+
+			SendMail.send(maildto);
+						
 			
 		}
 	}

@@ -490,6 +490,14 @@ footer .connect .twitter
 	padding:5px;
 }
 
+.invisible{
+	display:none;
+}
+.cursor_pointer{
+	cursor:pointer;
+}
+
+
 
 .row
 {

@@ -5,6 +5,7 @@ public class NewUser extends DBComponent{
 	private String Phone;
 	private String Email;
 	private String Password;
+	private String TempPassword;
 	
 	@Override
 	public String toString() {
@@ -42,6 +43,14 @@ public class NewUser extends DBComponent{
 
 	public void setEmail(String email) {
 		Email = email;
+	}
+
+	public String getTempPassword() {
+		return TempPassword;
+	}
+
+	public void setTempPassword(String tempPassword) {
+		TempPassword = tempPassword;
 	}
 
 }

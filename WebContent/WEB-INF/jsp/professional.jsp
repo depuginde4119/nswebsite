@@ -214,7 +214,7 @@ function confirmQuote()
 	$.ajax({
 		async:false,
 	    url: 'professional/'+NRGConstant.MC_PROFESSIONAL_ACCEPTQUOTE,
-	    data:"quote="+quotation+"&service="+serviceName+"&name="+username+"&email"+email+"&contact="+contact,
+	    data:"quote="+quotation+"&service="+serviceName+"&name="+username+"&email="+email+"&contact="+contact,
         cache: false,
         success : function(mes) {
 //         	$("#productType").html(html);
@@ -372,8 +372,8 @@ function cancelQuote()
 <input type="hidden" value=""  id="email_temp">
 <input type="hidden" value=""  id="contact_temp">
 
-<input type="button" value="Confirm Quote" >
-<input type="button" value="Cancel" onclcik="cancelQuote()" >
+<input type="button" value="Confirm Quote" onclick="confirmQuote()" >
+<input type="button" value="Cancel" onclick="cancelQuote()" >
 
 </div>
 </div>
