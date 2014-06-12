@@ -109,6 +109,19 @@ public class ProfessionalUtil extends HttpServlet {
 			}
 						
 		}
+		else if(uri.equals(Constants.MC_PROFESSIONAL_ACCEPTQUOTE))
+		{
+			
+//			data:"quote="+quotation+"&service="+serviceName+"&name="+username+"&email"+email+"&contact="+contact,\
+			
+			String name=(String) req.getParameter("name");
+			String email=(String) req.getParameter("email");
+			String contact=(String) req.getParameter("contact");
+			String service=(String) req.getParameter("service");
+			String quote=(String) req.getParameter("quote");
+			
+			
+		}
 	}
 
 }

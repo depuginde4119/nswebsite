@@ -140,11 +140,14 @@ $(document).ready(function(){
 										var servicevalue=obj.service;
 										var quoteValue=obj.quote;
 										
-										servicevalue=$("#service").val();
+										servicevalue=$("#service option:selected").text();
 										
 										$("#service_responce").html(servicevalue);
 										$("#quote_responce").html(quoteValue);
-										
+										$("#username_temp").val($("#name").val());
+										$("#email_temp").val($("#email").val());
+										$("#contact_temp").val($("#contact").val());
+																				
 										$(".QuoteFormContainer").addClass("hide");
 										$(".QuoteResponceContainer ").removeClass("hide");
 									}
@@ -197,6 +200,41 @@ $(document).ready(function(){
 	
 });
 
+
+function confirmQuote()
+{
+	var serviceName= $("#service_responce").html();
+	var quotation=$("#quote_responce").html();
+	var username=$("#username_temp").val();
+	var email=$("#email_temp").val();
+	var contact=$("#contact_temp").val();
+	
+	
+	
+	$.ajax({
+		async:false,
+	    url: 'professional/'+NRGConstant.MC_PROFESSIONAL_ACCEPTQUOTE,
+	    data:"quote="+quotation+"&service="+serviceName+"&name="+username+"&email"+email+"&contact="+contact,
+        cache: false,
+        success : function(mes) {
+//         	$("#productType").html(html);
+//         	$('#productType').trigger('change');
+
+        },
+	error: function(error)
+	{
+			alert("Error at call ");
+	}
+	});
+}
+
+function cancelQuote()
+{
+	$(".QuoteFormContainer").removeClass("hide");
+	$(".QuoteResponceContainer ").addClass("hide");
+	
+}
+
 </script>
 </head>
 <body>
@@ -207,7 +245,7 @@ $(document).ready(function(){
 </div>
 <div class="body_container constrain centered ">
 
-<div id="centered constrain width50 ">
+<div class="centered constrain width500px">
 
 <div class="QuoteFormContainer">
   <h1>Get your Quote now</h1>
@@ -232,10 +270,10 @@ $(document).ready(function(){
 	<div class="row">
 	<select  id="service" name="service"> 
 			<option value="1" selected="selected">General Installation</option>
-			<option value="2" >Waste Water Reclammation</option>
+			<option value="2" >Waste Water Redemption</option>
 			<option value="3" >Heat Pump</option>
 			<option value="4" >Gardening</option>
-			<option value="5" >Air conditional System</option>
+			<option value="5" >Air Conditional System</option>
 
 		</select>
 	</div>
@@ -329,6 +367,13 @@ $(document).ready(function(){
 
 <h3> Service : <span id="service_responce"></span> </h3>
 <h3> Quotation: <span id="quote_responce"></span> </h3>
+
+<input type="hidden" value="" id="username_temp" >
+<input type="hidden" value=""  id="email_temp">
+<input type="hidden" value=""  id="contact_temp">
+
+<input type="button" value="Confirm Quote" >
+<input type="button" value="Cancel" onclcik="cancelQuote()" >
 
 </div>
 </div>
