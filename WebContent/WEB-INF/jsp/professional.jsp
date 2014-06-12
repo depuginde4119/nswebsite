@@ -10,12 +10,47 @@
     <meta charset="utf-8">
 <title>Professional Installation</title>
 <link rel="stylesheet" type="text/css" href="./css/nrg.css">
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="./script/nrg.js"></script>
+
+ <script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/jquery-form.js"></script>
+<script src="./js/Constant.js"></script>
+<script src="./js/nrg.js"></script>
+
 <!-- <link rel="stylesheet" type="text/css" href="./css/form.css"> -->
 <script type="text/javascript">
 
 $(document).ready(function(){
+	
+// 	console.log("sample");
+	
+	/*
+	Get product Type as options HTML
+	*/
+	$('#productType').change(function(){
+		
+		var productType=$("#productType").val();
+		getProducts(productType,NRGConstant.FORAMTE_PRODUCTTYPE_OPTIONS,"#product");
+		
+	});
+	
+	$.ajax({
+		async:false,
+	    url: 'product/'+NRGConstant.MC_PRODUCT_PRODUCTTYPE,
+	    data:"format="+NRGConstant.FORAMTE_PRODUCTTYPE_OPTIONS,
+        cache: false,
+        success : function(html) {
+        	$("#productType").html(html);
+        	 $('#productType').trigger('change');
+
+        },
+	error: function(error)
+	{
+			alert("Error at call ");
+	}
+	});
+	
+
 	
 	$('#service').change(function(){
 		var value=$('#service').val();
@@ -24,15 +59,143 @@ $(document).ready(function(){
 		
 	});
 	
-});
+	
+	
+	$("#professionalform").validate({
+		rules : {
+			name : {
+				required : true
+			},
+			email : {
+				required : true,
+				validemail:true
+			},
+			contact : {
+				required : true,
+				validcontact :true
+			},
+			units_1 :
+			{
+			   isNumeric :true,
+			 },
+		area_2 :
+			{
+			   isNumeric :true,
+			},
+		units_1 :
+			{
+			isNumeric: true
+			},
+			capacity_3:
+			{
+				isNumeric :true
+			},
+			area_4:
+			{
+				isNumeric :true
+			},
+			area_5:
+			{
+				isNumeric :true
+			}
+			
 
-function validate()
-{
+		},
+		messages : {
+			username : {
+				required : "Enter name"
+			},
+			email : {
+				required : "Enter email"
+				
+			},
+			contact : {
+				required : "Enter contact"
+				
+			}
+		},
+		errorElement : "div",
+		errorPlacement : function(error, element) {
+			element.before(error);
+			offset = element.offset();
+			error.css('left', offset.left);
+			error.css('bottom', offset.top - element.outerHeight());
+		},
+		submitHandler : function(form) {
+			
+							$(form).ajaxSubmit({
+								url : "professional/"+NRGConstant.MC_PROFESSIONAL_QUOTE,
+								type : "POST",
+								data : $("#professionalform").serialize(),
+								success : function(json) {
+									console.log("json"+json);
+									if(json.isException == "true" || json.isException==true)
+										{
+				// 							window.location.href="./home";
+											alert("error");
+										}
+									else
+									{
+										var obj = jQuery.parseJSON(json);
+										var servicevalue=obj.service;
+										var quoteValue=obj.quote;
+										
+										servicevalue=$("#service").val();
+										
+										$("#service_responce").html(servicevalue);
+										$("#quote_responce").html(quoteValue);
+										
+										$(".QuoteFormContainer").addClass("hide");
+										$(".QuoteResponceContainer ").removeClass("hide");
+									}
+									$("#professionalform").resetForm();
+									
+								},
+								error : function(e) {
+									alert("Please try again later");
+								}
+							});
+				
+		}
+	});
 	
-	alert("validating");
+	$.validator.addMethod("validemail", function(value, element) {
 	
-	return false;
-	}
+		  var x = value;
+		    var atpos = x.indexOf("@");
+		    var dotpos = x.lastIndexOf(".");
+		    if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+		     
+		        return false;
+		    }
+		return true;
+	}, "Enter valid email ID");
+	
+	$.validator.addMethod("isNumeric", function(value, element) {
+		var name=$(element).attr("name");
+		var service=name.substring(name.indexOf("_")+1,name.length);	
+		var serviceSelected=$("#service").val();
+		if(service===serviceSelected)
+			{
+
+			if(value==="" || isNaN(value))
+				{
+					return false;
+					console.log("test failed");
+				}
+			
+			}
+
+		return true;
+	}, "Must be Numeric");
+
+	$.validator.addMethod("validcontact", function(value, element) {
+		   var result=!isNaN(value);
+		return result;
+	}, "Enter Valid Contact");
+	
+	
+});
 
 </script>
 </head>
@@ -46,19 +209,20 @@ function validate()
 
 <div id="centered constrain width50 ">
 
+<div class="QuoteFormContainer">
   <h1>Get your Quote now</h1>
   
-  <form action="" onsubmit="validate()">
+  <form id="professionalform" >
 	
 	<div class="row">
-	<label>Name</label><input type="text" id="name" >
+	<label>Name</label><input type="text" id="name" name="name" >
 	</div>
 	<div class="row">
-	<label>Email</label><input type="text" id="email"  >
+	<label>Email</label><input type="text" id="email"   name="email">
 	</div>
 	
 	<div class="row">
-	<label>Contact #</label><input type="text" id="contact" >
+	<label>Contact #</label><input type="text" id="contact"  name="contact">
 	</div>
 	
 	<div class="row">
@@ -71,59 +235,102 @@ function validate()
 			<option value="2" >Waste Water Reclammation</option>
 			<option value="3" >Heat Pump</option>
 			<option value="4" >Gardening</option>
-			<option value="5" >Air CondiDoning System</option>
+			<option value="5" >Air conditional System</option>
 
 		</select>
 	</div>
 	
 	<div class="serviceDetails" id="service_1">
+<!-- 	General Installation -->
 	<div class="row">
-		<label>Product Type</label><select id="productType"> </select>
+		<label>Product Type</label><select id="productType" name="productType"> </select>
 		
 	</div>
 	<div class="row">
-		<label>Product</label><select id="product"> </select>
+		<label>Product</label><select id="product" name="product"> </select>
 	</div>
 	<div class="row">
-		<label>Units</label><input type="text"/>
+		<label>Units</label><input type="text" name="units_1" id="units_1"/>
 	</div>
 	</div>
 	
 	<div class="serviceDetails hide" id="service_2">
-	service 2
+<!-- 	Waste Water redeemptions -->
+
+		<div class="row">
+			<label>Area</label><input type="text" name="area_2"/>
+		</div>
+		
+		<div class="row">
+			<label>Underground Water system</label>
+			<input type="radio" name="underGroundWater" value="1"  checked="checked">YES
+			<input type="radio" name="underGroundWater" value="0">NO
+			
+		</div>
+	
 	</div>
 
+
 	<div class="serviceDetails hide" id="service_3">
-	service 3
+<!-- 	Heat Pump -->
+		<div class="row">
+			<label>Capacity</label><input type="text" name="capacity_3"/>
+		</div>
+		
+		<div class="row">
+			<label>Pump type</label>
+			<input type="radio" name="pumpType_3" value="100"  checked="checked">100 KV
+			<input type="radio" name="pumpType_3" value="200">200 KV
+			<input type="radio" name="pumpType_3" value="300">300 KV
+		</div>
+		
 	</div>
 	
 	<div class="serviceDetails hide" id="service_4">
+<!-- 	Gardening -->
 	<div class="row">
-		<label>Area</label><input type="text"/>
-		
-	</div>
-	<div class="row">
-		<label>Avg Trees Per square Feet</label><input type="text"/>
-	</div>
-	<div class="row">
-		<label>Avg dip Per square Feet</label><input type="text"/>
+		<label>Area</label><input type="text" name="area_4"/>
+			
 	</div>
 	<div class="row">
 		<label>Green House</label>
-		<select> <option value="0">NO</option>   <option value="1">YES</option></select>
+		<input type="radio" name="greenHouse_4" value="1"  checked="checked">YES
+			<input type="radio" name="greenHouse_4" value="0">NO
 	</div>
+	<div class="row">
+		<label>Automatic Drip System</label> 
+			<input type="radio" name="dripSystem_4" value="1"  checked="checked">YES
+			<input type="radio" name="dripSystem_4" value="0">NO
+	</div>
+	
 	</div>
 	
 	<div class="serviceDetails hide" id="service_5">
-	service 5
+	<div class="row">
+		<label>Area</label><input type="text" name="area_5"/>
 	</div>
-	<input type="submit" value="SUBMIT" >
+	<div class="row">
+		<label>Variant</label>
+		<select  name="variant_5"> 
+			<option value="100" selected="selected">Split</option>
+			<option value="200">Center</option>
+		</select>
+	</div>
+	</div>
 	
-
+	<input type="submit" value="SUBMIT">
 	
 	</form>
 
+</div>
+<div class="QuoteResponceContainer hide" >
 
+<h1> Quotation is Successfully generated  </h1>
+
+<h3> Service : <span id="service_responce"></span> </h3>
+<h3> Quotation: <span id="quote_responce"></span> </h3>
+
+</div>
 </div>
 </div>
 </div>
