@@ -6,7 +6,14 @@ public class Product extends DBComponent {
 	String name;
 	String description;
 	String image;
+	boolean addedToCart=false;
 
+	public boolean isAddedToCart() {
+		return addedToCart;
+	}
+	public void setAddedToCart(boolean addedToCart) {
+		this.addedToCart = addedToCart;
+	}
 	double price;
 	String specification;
 	

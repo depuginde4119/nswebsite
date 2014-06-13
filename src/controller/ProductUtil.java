@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,14 +42,41 @@ public class ProductUtil extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		String temp_uri = req.getRequestURI();
-		System.out.println(":::::::::::::"+temp_uri);
+//		System.out.println(":::::::::::::"+temp_uri);
 		int p = temp_uri.lastIndexOf("/");
 		String uri=temp_uri.substring(p+1);
-				
-		if(uri.equals(Constants.MC_PRODUCT))
+		System.out.println(":::::::::::::"+uri);	
+		if(isNumeric(uri))
 		{
+			String addedtocart="";
+//			Get Current from cookie
+			if(req.getSession().getAttribute("loggedUser")!=null)
+			{
+			Cookie[] cookies= req.getCookies();
+			String username=(String) req.getSession().getAttribute("loggedUser");
+			username=username.replaceAll(" ", "_");
+			username="cart_"+username;
+			for(Cookie cookie: cookies)
+			{
+				if(username.equals(cookie.getName()))
+				{
+					addedtocart=cookie.getValue();
+					
+				}
+				
+			}
+			
+			}
+			
+			
+
 			// Data Process Steps
-			List<Product> products = (List<Product>) new ProductCRUD().select(null);
+			List<Product> products = (List<Product>) new ProductCRUD().getProducts(uri);
+			if(!"".equals(addedtocart))
+			{
+				markAddedToCart(products,addedtocart);
+				
+			}
 			// Put data into Request Object
 			req.setAttribute("products", products);
 			
@@ -94,6 +122,26 @@ public class ProductUtil extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+	}
+
+
+	private void markAddedToCart(List<Product> products, String addedtocart) {
+		
+		String[] allIds=addedtocart.split("_");
+	 for(Product product : products)
+		{
+			
+			String id= String.valueOf(product.getId());
+			for(String string:allIds)
+			{
+				if(string.equals(id))
+				{
+					product.setAddedToCart(true);
+				}
+			}
+			
+		}
+		
 	}
 
 
@@ -145,5 +193,18 @@ public class ProductUtil extends HttpServlet{
 			}
 		}
 		return buffer.toString();
+	}
+	
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    double d = Integer.parseInt(str);  
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
 	}
 }
