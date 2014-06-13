@@ -536,6 +536,11 @@ footer .connect .twitter
 	width:500px;
 	
 }
+.width750px
+{
+	width:750px;
+	
+}
 
 div.error
 {
@@ -546,7 +551,7 @@ div.error
 
 .productDetails
 {
-	height:175px;	
+	height:250px;	
 }
 
 .about_us_image

@@ -34,12 +34,12 @@
           <li><a href="examples.html">Our Clients</a></li>
           <li><a>Products</a>
           <ul>
-                  <li><a href="product/1">LED Bulbs</a></li>
-                  <li><a href="product/2">INSOLATION </a></li>
-                  <li><a href="product/3">WINDOWS</a></li>
-                  <li><a href="product/4">HEATERS</a></li>
+                  <li><a href="product?mc=1">LED Bulbs</a></li>
+                  <li><a href="product?mc=2">INSOLATION </a></li>
+                  <li><a href="product?mc=3">WINDOWS</a></li>
+                  <li><a href="product?mc=4">HEATERS</a></li>
                   <c:if test="${!empty sessionScope.loggedUser}">
-                 		 <li><a href="product/mycart">My Cart</a></li>
+                 		 <li><a href="product?mc=mycart">My Cart</a></li>
                   </c:if>
                 </ul></li>
           <li><a href="professional">Professional Installation</a>

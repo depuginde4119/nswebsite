@@ -39,6 +39,17 @@
 	   <url-pattern>/contactus</url-pattern>
   </servlet-mapping>
   
+     <servlet>
+	  <servlet-name>cartview</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/mycart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>cartview</servlet-name>
+	   <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  
+
+  
   <servlet>
 	  <servlet-name>register</servlet-name>
 	  <jsp-file> /WEB-INF/jsp/register.jsp </jsp-file>

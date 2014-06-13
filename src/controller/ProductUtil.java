@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nrg.common.Constants;
+import com.nrg.common.MailTemplate;
+import com.nrg.common.SendMail;
 
 import model.ProductCRUD;
+import DTO.MailDto;
 import DTO.Product;
 import DTO.ProductType;
 
@@ -48,7 +54,7 @@ public class ProductUtil extends HttpServlet{
 //		System.out.println(":::::::::::::"+uri);	
 		
 		String uri=req.getParameter("mc");
-		
+		System.out.println(":::::::::::::"+uri);	
 		
 		if(isNumeric(uri))
 		{
@@ -71,9 +77,6 @@ public class ProductUtil extends HttpServlet{
 			}
 			
 			}
-			
-			
-
 			// Data Process Steps
 			List<Product> products = (List<Product>) new ProductCRUD().getProducts(uri);
 			if(!"".equals(addedtocart))
@@ -126,6 +129,171 @@ public class ProductUtil extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+		else if(uri.equals(Constants.MC_PRODUCT_MYCART))
+		{
+//			String addedtocart="";
+//			Get Current from cookie
+//			if(req.getSession().getAttribute("loggedUser")!=null)
+//			{
+//			Cookie[] cookies= req.getCookies();
+//			String username=(String) req.getSession().getAttribute("loggedUser");
+//			username=username.replaceAll(" ", "_");
+//			username="cart_"+username;
+//			for(Cookie cookie: cookies)
+//			{
+//				if(username.equals(cookie.getName()))
+//				{
+//					addedtocart=cookie.getValue();
+//					
+//				}
+//				
+//			}
+//			
+//			}
+//			if("".equals(addedtocart))
+//			{
+//				req.setAttribute("nocart", true);
+//				
+//			}
+//			else
+//			{
+//				String[] productIds= addedtocart.split("_");
+//				
+//			  List<Product> products= null;
+//			  double totalPrice=0;
+//				 
+//				for(String productId :productIds)
+//				{
+//					if(products==null)
+//					{
+//						products=new ArrayList<Product>();
+//					}
+//					
+//					ProductCRUD productCRUD= new ProductCRUD();
+//					Product product= productCRUD.getProduct(productId);
+//					totalPrice=totalPrice+product.getPrice();
+//					
+//					products.add(product);
+//				}
+//				
+//				if(products!=null)
+//				{
+//					req.setAttribute("products", products);
+//					req.setAttribute("totalprice", totalPrice);
+//					req.setAttribute("nocart", true);
+//				}
+//				else
+//				{
+//					req.setAttribute("nocart", false);
+//				}
+//				
+//			}
+			
+			if(req.getSession().getAttribute("loggedUser")!=null)
+			{
+				Cookie[] cookies= req.getCookies();
+				List<Product> products=getProductsFromCokkie(cookies,req.getSession().getAttribute("loggedUser").toString());
+				if(products!=null)
+				{
+					double totalprice=getTotalPrice(products);
+					req.setAttribute("products", products);
+					req.setAttribute("totalprice", totalprice);
+					req.setAttribute("nocart", true);
+					
+				}else
+				{
+					req.setAttribute("nocart", false);
+				}
+				
+			}
+			// Redirect to view jsp.
+			RequestDispatcher rd=req.getRequestDispatcher("/cart");
+			try {
+				rd.forward(req, resp);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   }
+		else if(uri.equals(Constants.MC_PRODUCT_CARTSUBMIT))
+	   {
+			String loggedUser=req.getSession().getAttribute("loggedUser")!=null?req.getSession().getAttribute("loggedUser").toString():null;
+			if(loggedUser!=null)
+			{
+				Cookie[] cookies= req.getCookies();
+				List<Product> products=getProductsFromCokkie(cookies,loggedUser);
+				Map<String , Object> details = new HashMap<String,Object>();
+				details.put("products", products);
+				details.put("username", loggedUser);
+				details.put("total", getTotalPrice(products));
+				
+				 MailDto mailDto=  MailTemplate.cartEmail(details);
+				 SendMail.send(mailDto);
+			}
+		  
+		   
+	   }
+	}
+	
+	private double getTotalPrice(List<Product> products) {
+		double total=0;
+		for(Product product:products )
+		{
+			total=total+product.getPrice();
+			
+		}
+		return total;
+	}
+
+
+	private List<Product> getProductsFromCokkie(Cookie[] cokkies,String loggeduser)
+	{
+		String addedtocart=null;
+		String username=loggeduser;
+		username=username.replaceAll(" ", "_");
+		username="cart_"+username;
+		for(Cookie cookie: cokkies)
+		{
+			if(username.equals(cookie.getName()))
+			{
+				addedtocart=cookie.getValue();
+				
+			}
+			
+		}
+		
+		
+		if("".equals(addedtocart) || addedtocart==null)
+		{
+			return null;
+			
+		}
+		else
+		{
+			String[] productIds= addedtocart.split("_");
+			
+		  List<Product> products= null;
+		  
+			 
+			for(String productId :productIds)
+			{
+				if(products==null)
+				{
+					products=new ArrayList<Product>();
+				}
+				
+				ProductCRUD productCRUD= new ProductCRUD();
+				Product product= productCRUD.getProduct(productId);
+				
+				
+				products.add(product);
+			}
+			return products;
+		}
+		
 	}
 
 
