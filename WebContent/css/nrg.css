@@ -412,7 +412,7 @@ footer .connect .twitter
 	
 	margin-top:20px;
 	margin-bottom:2px;
-	height:400px;
+	min-height:400px;
 }
 .contact_us_map
 {
@@ -529,5 +529,12 @@ footer .connect .twitter
 .width500px
 {
 	width:500px;
+	
+}
+
+div.error
+{
+	color:red;
+	font-size: 0.7em;
 	
 }

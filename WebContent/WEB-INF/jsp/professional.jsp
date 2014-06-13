@@ -50,12 +50,17 @@ $(document).ready(function(){
 	}
 	});
 	
-
+	
+	/*
+	for initial form
+	*/
+	$(".serviceDetails").addClass("hide");
+	$(".service_1").removeClass("hide");
 	
 	$('#service').change(function(){
 		var value=$('#service').val();
 		$(".serviceDetails").addClass("hide");
-		$("#service_"+value).removeClass("hide");
+		$(".service_"+value).removeClass("hide");
 		
 	});
 	
@@ -234,6 +239,11 @@ function cancelQuote()
 	$(".QuoteResponceContainer ").addClass("hide");
 	
 }
+function restform()
+{
+	$("#professionalform").resetForm();
+	
+	}
 
 </script>
 </head>
@@ -249,25 +259,43 @@ function cancelQuote()
 
 <div class="QuoteFormContainer">
   <h1>Get your Quote now</h1>
-  
-  <form id="professionalform" >
+<form id="professionalform">
+  <table>
 	
-	<div class="row">
-	<label>Name</label><input type="text" id="name" name="name" >
-	</div>
-	<div class="row">
-	<label>Email</label><input type="text" id="email"   name="email">
-	</div>
+<tr>
+   <td>
+	    <label>Name</label>
+	</td>
+	<td>
+	       <input type="text" id="name" name="name" >
+	</td>
+</tr>
+	<tr>
 	
-	<div class="row">
-	<label>Contact #</label><input type="text" id="contact"  name="contact">
-	</div>
+	<td>
+	  <label>Email</label>
+	</td>
+	<td>
+	     <input type="text" id="email"   name="email">
+	</td>
+</tr>
+<tr>
 	
-	<div class="row">
+ <td>
+	<label>Contact #</label>
+</td>
+	<td>
+	<input type="text" id="contact"  name="contact">
+	</td>
+</tr>
+	
+	<tr>
+	<td>
 	<label>Select the Service</label>
-	</div>
 	
-	<div class="row">
+	</td><td>
+	
+	
 	<select  id="service" name="service"> 
 			<option value="1" selected="selected">General Installation</option>
 			<option value="2" >Waste Water Redemption</option>
@@ -276,88 +304,161 @@ function cancelQuote()
 			<option value="5" >Air Conditional System</option>
 
 		</select>
-	</div>
-	
-	<div class="serviceDetails" id="service_1">
-<!-- 	General Installation -->
-	<div class="row">
-		<label>Product Type</label><select id="productType" name="productType"> </select>
-		
-	</div>
-	<div class="row">
-		<label>Product</label><select id="product" name="product"> </select>
-	</div>
-	<div class="row">
-		<label>Units</label><input type="text" name="units_1" id="units_1"/>
-	</div>
-	</div>
-	
-	<div class="serviceDetails hide" id="service_2">
-<!-- 	Waste Water redeemptions -->
+	</td>
+</tr>
 
-		<div class="row">
-			<label>Area</label><input type="text" name="area_2"/>
-		</div>
+<!-- General installation -->
+
+<tr colspan="2" class="serviceDetails  service_1">
+<th class="serviceHeader">General Installation</th>
+</tr>
+
+<tr class="serviceDetails  service_1">
+
+<!-- 	<div class="serviceDetails" id="service_1"> -->
+<!-- 		<!-- 	General Installation --> 
+<!-- 			<div class="row"> -->
+<td>
+				<label>Product Type</label>
+				</td><td>
+				
+				<select id="productType" name="productType"> </select>
+				
+</td>
+</tr>
+<tr class="serviceDetails  service_1">
+				<td>
+				     <label>Product</label>
+				</td>
+				<td>
+				     <select id="product" name="product"> </select>
+				</td>
+</tr>				
+	
+<tr class="serviceDetails  service_1">
+         <td>
+         
+				<label>Units</label>
+				</td>
+				<td>
+				
+				<input type="text" name="units_1" id="units_1"/>
+				</td>
+
+<tr colspan="2" class="serviceDetails  service_2">
+<th class="serviceHeader">Waste Water redeemptions</th>
+</tr>
+	
+<tr  class="serviceDetails  service_2">
+     <td>
+			<label>Area</label>
+	</td>
+	<td>	<input type="text" name="area_2"/></td>
+</tr>
 		
-		<div class="row">
+<tr  class="serviceDetails  service_2">
+     <td>
 			<label>Underground Water system</label>
+		</td>
+		<td>	
 			<input type="radio" name="underGroundWater" value="1"  checked="checked">YES
-			<input type="radio" name="underGroundWater" value="0">NO
 			
-		</div>
+			<input type="radio" name="underGroundWater" value="0">NO
+		</td>
+</tr>
+
+<tr colspan="2" class="serviceDetails  service_3">
+	<th class="serviceHeader">Heat Pump</th>
+</tr>
 	
-	</div>
-
-
-	<div class="serviceDetails hide" id="service_3">
-<!-- 	Heat Pump -->
-		<div class="row">
-			<label>Capacity</label><input type="text" name="capacity_3"/>
-		</div>
+<tr  class="serviceDetails  service_3">
+     <td>
+		<label>Capacity</label>
+			</td><td>
+			<input type="text" name="capacity_3"/>
+			</td>
+</tr>
 		
-		<div class="row">
+<tr  class="serviceDetails  service_3">
+     <td>
 			<label>Pump type</label>
+		</td>
+		<td>
 			<input type="radio" name="pumpType_3" value="100"  checked="checked">100 KV
 			<input type="radio" name="pumpType_3" value="200">200 KV
 			<input type="radio" name="pumpType_3" value="300">300 KV
-		</div>
-		
-	</div>
-	
-	<div class="serviceDetails hide" id="service_4">
-<!-- 	Gardening -->
-	<div class="row">
-		<label>Area</label><input type="text" name="area_4"/>
 			
-	</div>
-	<div class="row">
+		</td>
+</tr>
+		
+	
+<tr colspan="2" class="serviceDetails  service_4">
+	<th class="serviceHeader">Gardening</th>
+</tr>
+	
+<tr  class="serviceDetails  service_4">
+	
+<!-- 	<div class="serviceDetails hide" id="service_4"> -->
+<!-- <!-- 	Gardening --> 
+<!-- 	<div class="row"> -->
+<td>
+		<label>Area</label>
+		</td><td>
+		<input type="text" name="area_4"/>
+		</td>
+</tr>
+
+<tr  class="serviceDetails  service_4">
+<td>
 		<label>Green House</label>
+		</td>
+		<td>
 		<input type="radio" name="greenHouse_4" value="1"  checked="checked">YES
 			<input type="radio" name="greenHouse_4" value="0">NO
-	</div>
-	<div class="row">
+			</td>
+			</tr>
+<tr  class="serviceDetails  service_4">
+<td>
 		<label>Automatic Drip System</label> 
+		</td> <td>
 			<input type="radio" name="dripSystem_4" value="1"  checked="checked">YES
 			<input type="radio" name="dripSystem_4" value="0">NO
-	</div>
-	
-	</div>
-	
-	<div class="serviceDetails hide" id="service_5">
-	<div class="row">
-		<label>Area</label><input type="text" name="area_5"/>
-	</div>
-	<div class="row">
+			</td>
+</tr>
+
+<tr colspan="2" class="serviceDetails  service_5">
+<th class="serviceHeader">Air Conditional</th>
+</tr>
+
+<tr  class="serviceDetails  service_5">
+<td>
+		<label>Area</label>
+		</td>
+		<td>
+		<input type="text" name="area_5"/>
+		</td>
+<tr  class="serviceDetails  service_5">
+<td>
 		<label>Variant</label>
+		</td>
+		<td>
 		<select  name="variant_5"> 
 			<option value="100" selected="selected">Split</option>
 			<option value="200">Center</option>
 		</select>
-	</div>
-	</div>
-	
+		</td>
+
+<tr>
+<td>
+
 	<input type="submit" value="SUBMIT">
+	</td>
+	<td>
+	<input type="button" value="CANCEL" onclick="restform();">
+	</td>
+	</tr>
 	
+	</table>
 	</form>
 
 </div>
