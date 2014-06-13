@@ -30,7 +30,7 @@
 <div class="menuContainer">
  <nav class="constrain centered grid grid-pad clearfix">
         <ul class="sf-menu" id="nav">
-          <li class="selected"><a href="index.html">About Us</a></li>
+          <li class="selected"><a href="aboutus">About Us</a></li>
           <li><a href="examples.html">Our Clients</a></li>
           <li><a>Products</a>
           <ul>

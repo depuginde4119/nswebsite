@@ -65,6 +65,15 @@
 	   <url-pattern>/professional</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+	  <servlet-name>about</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/aboutus.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>about</servlet-name>
+	   <url-pattern>/aboutus</url-pattern>
+  </servlet-mapping>
+  
   
   <error-page>
   <error-code>404</error-code>

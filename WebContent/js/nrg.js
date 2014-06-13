@@ -6,8 +6,8 @@ function getProducts(productType, format, toElement)
 {
 	$.ajax({
 		async:false,
-	    url: 'product/'+NRGConstant.MC_PRODUCT_PRODUCTS,
-	    data:"format="+format+"&pt="+productType,
+	    url: 'product',
+	    data:"format="+format+"&pt="+productType+"&mc="+NRGConstant.MC_PRODUCT_PRODUCTS,
         cache: false,
         success : function(html) {
         	$(toElement).html(html);

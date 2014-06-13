@@ -41,11 +41,15 @@ public class ProductUtil extends HttpServlet{
 			HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		
-		String temp_uri = req.getRequestURI();
+//		String temp_uri = req.getRequestURI();
 //		System.out.println(":::::::::::::"+temp_uri);
-		int p = temp_uri.lastIndexOf("/");
-		String uri=temp_uri.substring(p+1);
-		System.out.println(":::::::::::::"+uri);	
+//		int p = temp_uri.lastIndexOf("/");
+//		String uri=temp_uri.substring(p+1);
+//		System.out.println(":::::::::::::"+uri);	
+		
+		String uri=req.getParameter("mc");
+		
+		
 		if(isNumeric(uri))
 		{
 			String addedtocart="";
