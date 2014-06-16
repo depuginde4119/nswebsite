@@ -29,6 +29,11 @@ public static String  MC_PRODUCT_PRODUCTS="mpp";
 public static String  MC_PRODUCT_MYCART="mycart";
 public static String  MC_PRODUCT_CARTSUBMIT="mpcs";
 
+public static String  MC_ADMIN_ALLPRODUCT="maap";
+public static String  MC_ADMIN_UPDATEPRODUCT="maup";
+public static String  MC_ADMIN_DELETEPRODUCT="madp";
+
+
 
 
 public static String FORAMTE_PRODUCTTYPE_OPTIONS="fpo";

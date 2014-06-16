@@ -1,4 +1,4 @@
-package model;
+package com.nrgsavers.model;
 
 import java.sql.*;
 

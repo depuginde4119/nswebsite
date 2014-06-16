@@ -1,4 +1,4 @@
-package controller;
+package com.nrgsavers.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.nrg.common.Constants;
 import com.nrg.common.MailTemplate;
 import com.nrg.common.SendMail;
+import com.nrgsavers.dto.MailDto;
+import com.nrgsavers.dto.Product;
+import com.nrgsavers.dto.ProductType;
+import com.nrgsavers.model.ProductCRUD;
 
-import model.ProductCRUD;
-import DTO.MailDto;
-import DTO.Product;
-import DTO.ProductType;
 
 public class ProductUtil extends HttpServlet{
 	

@@ -1,4 +1,4 @@
-package model;
+package com.nrgsavers.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DTO.DBComponent;
-import DTO.Product;
-import DTO.ProductType;
+import com.nrgsavers.dto.DBComponent;
+import com.nrgsavers.dto.Product;
+import com.nrgsavers.dto.ProductType;
+
 
 public class ProductCRUD implements CRUD {
 
@@ -74,33 +75,37 @@ public class ProductCRUD implements CRUD {
 	@Override
 	public void create(DBComponent dbComponent) {
 
-//		Product product = (Product) dbComponent;
-//
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//
-//        String query = 
-//                "INSERT INTO User (FirstName, LastName, EmailAddress) " +
-//                "VALUES (?, ?, ?)";
-//        try
-//        {        
-//            ps = connection.prepareStatement(query);
-//            ps.setString(1, product.getFirstName());
-//            ps.setString(2, product.getLastName());
-//            ps.setString(3, product.getEmailAddress());
-//            return ps.executeUpdate();
-//        }
-//        catch(SQLException e)
-//        {
-//            e.printStackTrace();
-//            return 0;
-//        }
-//        finally
-//        {
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
+		Product product = (Product) dbComponent;
+
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = 
+                "INSERT INTO Product ( Name, Description,  ProductTypeId, , Image, Price,Specifications) " +
+                "VALUES (?,?, ?, ?,?,?)";
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, product.getName());
+            ps.setString(2, product.getDescription());
+            ps.setInt(3, product.getTypeId());
+            ps.setString(6, product.getImage());
+            ps.setDouble(5, product.getPrice());
+            ps.setString(4, product.getSpecification());
+         
+            ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
 
 	}
 
@@ -226,6 +231,83 @@ public class ProductCRUD implements CRUD {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
+	}
+
+	public List<Product> getAllProduct() {
+		ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT p.id, Name, ProductTypeId, Description, Image, Price,Specifications,pt.TypeName,pt.TypeDescription FROM product p join producttype pt on (p.ProductTypeId= pt.id)";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            Product product = null;
+            List<Product> products= null;
+            boolean ifFirst=true;
+            while (rs.next())
+            {
+            	if(ifFirst)
+            	{
+            		products= new ArrayList<Product>();
+            		ifFirst=false;
+            	}
+               product = new Product();
+               product.setId(rs.getInt("id"));
+               product.setName(rs.getString("Name"));
+               product.setDescription(rs.getString("Description"));
+               product.setImage(rs.getString("Image"));
+               product.setPrice(rs.getDouble("Price"));
+               product.setSpecification(rs.getString("Specifications"));
+               product.setTypeName(rs.getString("TypeName"));
+               product.setTypeDescription(rs.getString("TypeDescription"));
+               product.setTypeId(rs.getInt("ProductTypeId"));
+               
+               
+               products.add(product);
+            }
+            return products;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+	}
+
+	public void delete(String productId) {
+		ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "DELETE FROM PRODUCT p WHERE p.id=?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, productId);
+            ps.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+          
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+		
 	}
 
 }

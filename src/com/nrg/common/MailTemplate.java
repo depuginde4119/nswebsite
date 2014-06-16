@@ -3,9 +3,10 @@ package com.nrg.common;
 import java.util.List;
 import java.util.Map;
 
-import DTO.MailDto;
-import DTO.NewUser;
-import DTO.Product;
+import com.nrgsavers.dto.MailDto;
+import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.Product;
+
 
 public class MailTemplate {
 	public static MailDto tempPasswordTemplate(NewUser userdto)

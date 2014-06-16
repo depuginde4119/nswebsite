@@ -1,4 +1,4 @@
-package controller;
+package com.nrgsavers.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,12 +13,12 @@ import com.nrg.common.Constants;
 import com.nrg.common.MailTemplate;
 import com.nrg.common.RandomStringGenerator;
 import com.nrg.common.SendMail;
+import com.nrgsavers.dto.MailDto;
+import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.Product;
+import com.nrgsavers.model.ProductCRUD;
+import com.nrgsavers.model.UserCRUD;
 
-import model.ProductCRUD;
-import model.UserCRUD;
-import DTO.MailDto;
-import DTO.NewUser;
-import DTO.Product;
 
 public class UserUtil extends HttpServlet{
 	@Override

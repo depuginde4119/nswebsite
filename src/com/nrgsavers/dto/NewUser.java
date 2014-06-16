@@ -1,4 +1,4 @@
-package DTO;
+package com.nrgsavers.dto;
 
 public class NewUser extends DBComponent{
 	private String Name;

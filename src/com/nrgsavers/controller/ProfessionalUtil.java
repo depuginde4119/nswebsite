@@ -1,4 +1,4 @@
-package controller;
+package com.nrgsavers.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ProductCRUD;
-import DTO.MailDto;
-import DTO.NewUser;
-import DTO.Product;
 
 import com.nrg.common.Constants;
 import com.nrg.common.MailTemplate;
 import com.nrg.common.SendMail;
+import com.nrgsavers.dto.MailDto;
+import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.Product;
+import com.nrgsavers.model.ProductCRUD;
 
 public class ProfessionalUtil extends HttpServlet {
 	@Override
@@ -46,10 +46,10 @@ public class ProfessionalUtil extends HttpServlet {
 			String service=(String) req.getParameter("service");
 			if(service!=null)
 			{
-			
-			switch(service)
+				int serviceInt= Integer.parseInt(service);
+			switch(serviceInt)
 			{
-				case  "1":
+				case  1:
 					String productID=(String) req.getParameter("product");
 					int units=Integer.parseInt(req.getParameter("units_1"));
 					ProductCRUD productCRUD= new ProductCRUD();
@@ -65,7 +65,7 @@ public class ProfessionalUtil extends HttpServlet {
 					
 //					Product product=productCRUD.getProducts(productID);
 					break;
-				case  "2":
+				case  2:
 					int area=Integer.parseInt(req.getParameter("area_2"));
 					int underground=Integer.parseInt(req.getParameter("underGroundWater"));
 					
@@ -73,7 +73,7 @@ public class ProfessionalUtil extends HttpServlet {
 					quote=quote+(area*Constants.WWR_INSTALLATION_PER_SQFEET);
 					
 					break;
-				case  "3":
+				case  3:
 					int capacity=Integer.parseInt(req.getParameter("capacity_3"));
 					int pumptype=Integer.parseInt(req.getParameter("pumpType_3"));
 					quote=quote+(pumptype*Constants.HP_PUMPTYPE_CHARGES);
@@ -81,7 +81,7 @@ public class ProfessionalUtil extends HttpServlet {
 							
 	
 					break;
-				case  "4":
+				case  4:
 					
 					int area_4=Integer.parseInt(req.getParameter("area_4"));
 					int greenHouse=Integer.parseInt(req.getParameter("greenHouse_4"));
@@ -91,7 +91,7 @@ public class ProfessionalUtil extends HttpServlet {
 					quote=quote+(drip*Constants.GD_DRIP_CHARGES*area_4);
 	
 					break;
-				case  "5":
+				case  5:
 					int area_5=Integer.parseInt(req.getParameter("area_5"));
 					int variant_5=Integer.parseInt(req.getParameter("variant_5"));
 					quote=quote+(area_5*Constants.AC_PERAREA_CHARGES);
