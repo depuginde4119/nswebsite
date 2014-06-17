@@ -115,11 +115,30 @@ public class UserCRUD implements CRUD{
           
             if(rs.next())
             {
+            	
               return true;
             }
             else
             {
+            	query = "SELECT EmailId FROM user WHERE EmailId = ? AND TemporaryPassword = ?";
+            	  ps = connection.prepareStatement(query);
+                  ps.setString(1, userDto.getEmail());
+                  ps.setString(2, userDto.getPassword());
+                  rs = ps.executeQuery();
+                  if(rs.next())
+                  {
+                	  //update password with temp password and remove temp password here
+                	  query = "UPDATE user SET TemporaryPassword = ?, Password = ? WHERE EmailId = ?";
+                	  ps = connection.prepareStatement(query);
+                      ps.setString(1, "");
+                      ps.setString(2, userDto.getPassword());
+                      ps.setString(3, userDto.getEmail());
+                      ps.executeUpdate();
+                	  return true;
+                  }
+                  else{
             	return false;
+                  }
             }
            
         }
