@@ -163,7 +163,7 @@ public class UserCRUD implements CRUD{
         ResultSet rs = null;
         NewUser userDto = (NewUser) dbComponent;
         NewUser userDto2 = new NewUser();
-        String query = "SELECT EmailId, FirstName, Mobile, Password FROM user WHERE EmailId = ? ";
+        String query = "SELECT EmailId, FirstName, Mobile, Password, Role FROM user WHERE EmailId = ? ";
         try
         {
             ps = connection.prepareStatement(query);
@@ -176,6 +176,7 @@ public class UserCRUD implements CRUD{
             	userDto2.setEmail(rs.getString("EmailId"));
             	userDto2.setName(rs.getString("FirstName"));
             	userDto2.setPhone(rs.getString("Mobile"));
+            	userDto2.setRole(rs.getString("Role"));
             
             }
             return userDto2;
