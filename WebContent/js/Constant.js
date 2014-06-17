@@ -1,0 +1,16 @@
+/**
+ * 
+
+ *
+ */
+
+var NRGConstant={
+		MC_PROFESSIONAL_QUOTE:"mpq",
+		MC_PROFESSIONAL_ACCEPTQUOTE:"mpa",
+		
+	    MC_PRODUCT_PRODUCTTYPE:"mpt",
+	    MC_PRODUCT_PRODUCTS:"mpp",
+	    MC_PRODUCT_CARTSUBMIT:"mpcs",
+	    FORAMTE_PRODUCTTYPE_OPTIONS:"fpo"
+		
+};

@@ -1,4 +1,4 @@
-package DTO;
+package com.nrgsavers.dto;
 
 public class MailDto {
 	private String toAddress;

@@ -6,7 +6,8 @@ import javax.mail.*;
 import javax.mail.internet.*;  
 import javax.activation.*;  
 
-import DTO.MailDto;
+import com.nrgsavers.dto.MailDto;
+
   
 public class SendMail  
 {  

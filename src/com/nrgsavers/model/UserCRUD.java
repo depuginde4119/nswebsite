@@ -1,8 +1,5 @@
-package model;
+package com.nrgsavers.model;
 
-import DTO.DBComponent;
-import DTO.NewUser;
-import DTO.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.nrgsavers.dto.DBComponent;
+import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.Product;
 
 public class UserCRUD implements CRUD{
 

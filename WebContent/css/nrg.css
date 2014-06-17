@@ -231,7 +231,7 @@ ul#nav {
 
 ul#nav ul { 
   background: #555;
-  margin-top: 5px;
+  margin-top: 0px;
   padding-bottom: 15px;
 }
 
@@ -395,19 +395,29 @@ footer .connect .twitter
 
 .contactus_banner
 {
-	background-image: url("../images/contact_us_banner.png");
+	background-image: url("../images/banner/contactus_banner.jpg");
 }
 
 .product_banner
 {
-	background-image: url("../images/contact_us_banner.png");
+	background-image: url("../images/banner/prouct_banner.jpg");
+}
+
+.professional_banner
+{
+	background-image: url("../images/banner/professionalInstalation_banner.jpg");
+}
+
+.aboutus_banner
+{
+	background-image: url("../images/banner/about_banner.png");
 }
 .body_container
 {
 	
 	margin-top:20px;
 	margin-bottom:2px;
-	height:400px;
+	min-height:400px;
 }
 .contact_us_map
 {
@@ -444,6 +454,11 @@ footer .connect .twitter
 .width100
 {
 	width: 100%;
+	
+}
+.width50
+{
+	width: 50%;
 	
 }
 
@@ -485,4 +500,73 @@ footer .connect .twitter
 }
 .cursor_pointer{
 	cursor:pointer;
+}
+
+
+
+.row
+{
+	padding: 2px;
+}
+
+.row  label
+{
+	margin-right: 20px;	
+}
+
+.row input[type=text]
+{
+	width: 250px;		
+}
+
+.hide
+{
+	
+	display: none;
+}
+
+.show
+{
+	display: block;
+	
+}
+
+.width500px
+{
+	width:500px;
+	
+}
+.width750px
+{
+	width:750px;
+	
+}
+
+div.error
+{
+	color:red;
+	font-size: 0.7em;
+	
+}
+
+.productDetails
+{
+	height:250px;	
+}
+
+.about_us_image
+{
+	width:50%;
+	float: left;
+	background:green;
+	height:100%;
+	margin-left:11%;
+	
+}
+
+.about_us_content
+{
+	width:35%;
+	float:right;
+	margin-left: 4%;
 }

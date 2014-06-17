@@ -1,11 +1,12 @@
 /**
  * 
  */
-package model;
+package com.nrgsavers.model;
 
 import java.util.List;
 
-import DTO.DBComponent;
+import com.nrgsavers.dto.DBComponent;
+
 
 /**
  * @author HKS
