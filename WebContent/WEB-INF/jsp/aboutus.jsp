@@ -23,7 +23,7 @@
 <div class="constrain banner centered aboutus_banner " >
 </div>
 <div class="body_container constrain centered " style="height: 420px;">
-<div class="about_us_image" id="mapDiv">
+<div class="about_us_image" >
 <img src="./images/aboutus.jpg" class="width100 height100">
 </div>
 <div class="about_us_content">
