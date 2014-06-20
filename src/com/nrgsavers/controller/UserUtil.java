@@ -87,6 +87,7 @@ public class UserUtil extends HttpServlet{
 				{
 					NewUser dto = new UserCRUD().getUser(userDto);
 					req.getSession().setAttribute("loggedUser",dto.getName());
+					req.getSession().setAttribute("userRole",dto.getRole());
 					resp.getWriter().print("Success");
 				}
 				else

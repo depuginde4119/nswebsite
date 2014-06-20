@@ -85,6 +85,15 @@
 	   <url-pattern>/aboutus</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+	  <servlet-name>adminNews</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/admin/news.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>adminNews</servlet-name>
+	   <url-pattern>/addnews</url-pattern>
+  </servlet-mapping>
+  
   
   <error-page>
   <error-code>404</error-code>
@@ -120,7 +129,14 @@
 	  <servlet-name>professionalController</servlet-name>
 	   <url-pattern>/professional/*</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+	  <servlet-name>adminController</servlet-name>
+	  <servlet-class>com.nrgsavers.controller.UserUtil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>adminController</servlet-name>
+	   <url-pattern>/admin/*</url-pattern>
+  </servlet-mapping>
 
   
   
