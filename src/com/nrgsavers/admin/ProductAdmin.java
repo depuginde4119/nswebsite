@@ -14,12 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nrg.common.Constants;
+import com.nrg.common.JQGridData;
 import com.nrg.common.MailTemplate;
 import com.nrg.common.SendMail;
 import com.nrgsavers.controller.ProductUtil;
 import com.nrgsavers.dto.MailDto;
+import com.nrgsavers.dto.NewsDto;
 import com.nrgsavers.dto.Product;
 import com.nrgsavers.dto.ProductType;
+import com.nrgsavers.model.AdminCRUD;
 import com.nrgsavers.model.ProductCRUD;
 
 
@@ -50,22 +53,20 @@ public class ProductAdmin extends HttpServlet{
 		String uri=req.getParameter("mc");
 		System.out.println(":::::::::::::"+uri);	
 		
-		if(isNumeric(uri))
+		if(uri==null)
 		{
-			ProductCRUD productCRUD= new ProductCRUD();
-
-			// Data Process Steps
-			Product product = (Product) productCRUD.getProduct(uri);
-			
+//			ProductCRUD productCRUD= new ProductCRUD();
+//			// Data Process Steps
+//			Product product = (Product) productCRUD.getAllProduct();
 			// Put data into Request Object
-			req.setAttribute("product", product);
-						
-			List<ProductType> productTypes= productCRUD.getAllProductType();
-			req.setAttribute("productTypes", productTypes);
+//			req.setAttribute("products", product);
+	
+//			List<ProductType> productTypes= productCRUD.getAllProductType();
+//			req.setAttribute("productTypes", productTypes);
 			
 			
 			// Redirect to view jsp.
-			RequestDispatcher rd=req.getRequestDispatcher("/editProduct");
+			RequestDispatcher rd=req.getRequestDispatcher("/padminview");
 			try {
 				rd.forward(req, resp);
 			} catch (ServletException e) {
@@ -81,17 +82,30 @@ public class ProductAdmin extends HttpServlet{
 			ProductCRUD productCRUD= new ProductCRUD();
 			List<Product> products= productCRUD.getAllProduct();
 			
+				int totalNumberOfPages = 1;
+			     int currentPageNumber = 1;
+			     int totalNumberOfRecords = 1; // All in there are 8 records in our dummy data object
+			    
+			     JQGridData<Product> gridData = new JQGridData<Product>(totalNumberOfPages, currentPageNumber, totalNumberOfRecords, products);
+			     System.out.println("Grid Data: " + gridData.getJsonString());
+			     try {
+					resp.getWriter().write(gridData.getJsonString());
+				  } 
+			     catch (IOException e) {
+					e.printStackTrace();
+				}
+						
 			// Redirect to view jsp.
-			RequestDispatcher rd=req.getRequestDispatcher("/adminProducts");
-			try {
-				rd.forward(req, resp);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e){
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			RequestDispatcher rd=req.getRequestDispatcher("/adminProducts");
+//			try {
+//				rd.forward(req, resp);
+//			} catch (ServletException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e){
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			
 		}
 		else if(uri.equals(Constants.MC_ADMIN_UPDATEPRODUCT))

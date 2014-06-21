@@ -20,6 +20,16 @@
 	   <url-pattern>/home</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+	  <servlet-name>padminview</servlet-name>
+	  <jsp-file>/WEB-INF/jsp/admin/adminprod.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>padminview</servlet-name>	
+	   <url-pattern>/padminv</url-pattern>
+  </servlet-mapping>
+  
+
   
    <servlet>
 	  <servlet-name>productview</servlet-name>
@@ -160,6 +170,17 @@
   <servlet-mapping>
 	  <servlet-name>adminController</servlet-name>
 	   <url-pattern>/admin/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+	  <servlet-name>productAdmin</servlet-name>
+	  <servlet-class>com.nrgsavers.admin.ProductAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>productAdmin</servlet-name>
+	   <url-pattern>/padmin</url-pattern>
   </servlet-mapping>
 
   

@@ -13,11 +13,8 @@
            <div class="description"> Description</div> 
            <div> ${product.description}</div>
            <div> Price : ${product.price}</div>
-                     
-           
-           	 <input type="button" value="Added to cart" id="addToCart_${product.id}" disabled>
-  
-        </div>
+           <input type="button" value="Added to cart" id="addToCart_${product.id}" disabled>
+  		</div>
         
         </div>
         

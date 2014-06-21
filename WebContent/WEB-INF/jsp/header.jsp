@@ -85,16 +85,8 @@
         <ul class="sf-menu" id="nav">
           <li class="selected"><a href="addnews">News</a></li>
           <li><a href="#">Settings</a></li>
-          <li><a>Products</a>
-          <ul>
-                  <li><a href="product?mc=1">LED Bulbs</a></li>
-                  <li><a href="product?mc=2">INSOLATION </a></li>
-                  <li><a href="product?mc=3">WINDOWS</a></li>
-                  <li><a href="product?mc=4">HEATERS</a></li>
-                  <c:if test="${!empty sessionScope.loggedUser}">
-                 		 <li><a href="product?mc=mycart">My Cart</a></li>
-                  </c:if>
-                </ul></li>
+          <li><a href="padmin">Products</a>
+         </li>
          
          </ul>
       </nav>
