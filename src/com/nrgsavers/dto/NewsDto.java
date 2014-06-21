@@ -1,9 +1,11 @@
 package com.nrgsavers.dto;
 
 public class NewsDto extends DBComponent{
+	private String id;
 private String Title;
 private String Description;
 private String Url;
+private String Status;
 public String getTitle() {
 	return Title;
 }
@@ -24,8 +26,21 @@ public void setUrl(String url) {
 }
 @Override
 public String toString() {
-	// TODO Auto-generated method stub
-	return null;
+	  return "{\"id\":\"" + id + "\", \"title\":\"" + Title + "\", \"description\":\""
+	            + Description + "\", \"url\":\"" + Url + "\", \"status\":\"" + Status + "\"}";
 }
+public String getStatus() {
+	return Status;
+}
+public void setStatus(String status) {
+	Status = status;
+}
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+
 
 }
