@@ -3,7 +3,7 @@
 
     <Resource name="jdbc/nrgsavers" auth="Container" 
         maxActive="100" maxIdle="30" maxWait="10000" 
-        username="root" password="" 
+        username="mybiAdmin" password="mybiAdmin#9" 
         driverClassName="com.mysql.jdbc.Driver" 
         url="jdbc:mysql://localhost:3306/nrgsavers?autoReconnect=true" 
         logAbandoned="true" removeAbandoned="true" 

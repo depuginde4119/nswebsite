@@ -102,7 +102,9 @@ public class Product extends DBComponent {
 //		return buffer.toString();
 		
 		 return "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"description\":\""
-         + description + "\", \"image\":\"" + image + "\", \"price\":\"" + price + "\", \"specification\":\"" + specification + "\", \"typeId\":\"" + typeId + "\", \"typeName\":\"" + typeName + "\"}";
+         + description.replace("\"", "\\\"") + "\",  \"price\":\"" + price + "\", \"typeName\":\"" + typeName + "\"}";
+		 
+//		 return "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"typeName\":\"" + typeName + "\"}";
 	}
 	
 }
