@@ -310,4 +310,55 @@ public class ProductCRUD implements CRUD {
 		
 	}
 
+	public ArrayList<Product> searchProduct(String keyword) {
+		
+		ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        Product product = null;
+        ArrayList<Product> products= null;
+        boolean ifFirst=true;
+        String query = "SELECT p.id, Name, ProductTypeId, Description, Image, Price,Specifications,pt.TypeName,pt.TypeDescription FROM product p join producttype pt on (p.ProductTypeId= pt.id) where Lower(Name) like Lower('%"+keyword+"%') or Lower(Description) like Lower('%"+keyword+"%');";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            rs= ps.executeQuery();
+            while(rs.next())
+            {
+            	
+            	if(ifFirst)
+            	{
+            		products= new ArrayList<Product>();
+            		ifFirst=false;
+            	}
+               product = new Product();
+               product.setName(rs.getString("Name"));
+               product.setDescription(rs.getString("Description"));
+               product.setImage(rs.getString("Image"));
+               product.setPrice(rs.getDouble("Price"));
+               product.setTypeName(rs.getString("TypeName"));
+               product.setSpecification(rs.getString("Specifications"));
+               product.setTypeDescription(rs.getString("TypeDescription"));
+               product.setTypeId(rs.getInt("ProductTypeId"));
+               products.add(product);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+          
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+		
+		
+		return products;
+	}
+
 }

@@ -379,4 +379,12 @@ public class ProductUtil extends HttpServlet{
 	  }  
 	  return true;  
 	}
+
+
+	public ArrayList<Product> searchProduct(String keyword) {
+	
+		
+		
+		return null;
+	}
 }
