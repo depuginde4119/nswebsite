@@ -11,7 +11,7 @@ public static String LOGOUT_PATH = "userLogout";
 public static String FORGOT_PASSWORD_PATH = "forgotPassword";
 
 public static String ADD_NEWS = "addNews";
-
+public static String VIEW_ALL_NEWS = "viewAllNews";
 public static String MAIL_USERNAME ="depuginde4119@gmail.com";
 public static String MAIL_PASSWORD ="08U11A1231";
 

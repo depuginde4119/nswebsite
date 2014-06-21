@@ -155,7 +155,7 @@
   </servlet-mapping>
   <servlet>
 	  <servlet-name>adminController</servlet-name>
-	  <servlet-class>com.nrgsavers.controller.UserUtil</servlet-class>
+	  <servlet-class>com.nrgsavers.controller.AdminUtil</servlet-class>
   </servlet>
   <servlet-mapping>
 	  <servlet-name>adminController</servlet-name>
