@@ -76,38 +76,41 @@
      
    });//]]>
    
-   jQuery("#projectTable").jqGrid({
-       url: "admin/viewAllNews",
-       datatype: "json",
-       jsonReader: {repeatitems: false, id: "ref"},
-       colNames:['SNo.','Title', 'Description', 'Status'],
-       colModel:[
-           {name:'id',index:'id', width:10},
-           {name:'Title',index:'Title', width:100},
-           {name:'Description',index:'Description', width:300},
-           {name:'Status',index:'Status', width:50}
-       ],
-       rowNum:20,
-       rowList:[20,60,100],
-       height:460,
-       pager: "#pagingDiv",
-       viewrecords: true,
-       caption: "Json Example"
-   });
+  
     
-   $("#pcSelect").change(function(){
-       var postcode = $("#pcSelect").val();
-       jQuery("#projectTable").jqGrid(
-               "setGridParam",{
-                   url:"LoadJsonDataServlet?type="+ postcode,
-                   page:1})
-               .trigger("reloadGrid");
-   });
+//    $("#pcSelect").change(function(){
+//        var postcode = $("#pcSelect").val();
+//        jQuery("#projectTable").jqGrid(
+//                "setGridParam",{
+//                    url:"LoadJsonDataServlet?type="+ postcode,
+//                    page:1})
+//                .trigger("reloadGrid");
+//    });
   </script>
   
  <script type="text/javascript">
         $(document).ready(function(){
-        
+        	
+        	 jQuery("#projectTable").jqGrid({
+        	       url: "admin/viewAllNews",
+        	       datatype: "json",
+        	       jsonReader: {repeatitems: false, id: "ref"},
+        	       colNames:['SNo.','Title', 'Description', 'Status'],
+        	       colModel:[
+        	           {name:'id',index:'id', width:10},
+        	           {name:'title',index:'title', width:100},
+        	           {name:'description',index:'description', width:300},
+        	           {name:'status',index:'status', width:50}
+        	       ],
+        	       rowNum:20,
+        	       rowList:[20,60,100],
+        	       height:460,
+        	       pager: "#pagingDiv",
+        	       viewrecords: true,
+        	       caption: "Json Example"
+        	   });
+        	 
+        	 
 		$("#newsForm").validate({
 				rules : {
 					news_title : {
@@ -186,6 +189,8 @@
 </div>
  <table id="grid"></table>
     <hr>
+    <table id="projectTable"></table>
+              <div id="pagingDiv"></div>
 </div>
 </div>
 <%@include file="/WEB-INF/jsp/footer.jsp" %>
