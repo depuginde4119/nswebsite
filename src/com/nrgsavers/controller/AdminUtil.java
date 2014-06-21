@@ -57,7 +57,7 @@ public class AdminUtil extends HttpServlet{
 			{
 				int totalNumberOfPages = 1;
 			     int currentPageNumber = 1;
-			     int totalNumberOfRecords = 8; // All in there are 8 records in our dummy data object
+			     int totalNumberOfRecords = 1; // All in there are 8 records in our dummy data object
 			     List<NewsDto> newsList = new AdminCRUD().getAllNews();
 			     JQGridData<NewsDto> gridData = new JQGridData<NewsDto>(totalNumberOfPages, currentPageNumber, totalNumberOfRecords, newsList);
 			     System.out.println("Grid Data: " + gridData.getJsonString());
