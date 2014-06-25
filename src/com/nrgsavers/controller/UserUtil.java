@@ -15,7 +15,9 @@ import com.nrg.common.RandomStringGenerator;
 import com.nrg.common.SendMail;
 import com.nrgsavers.dto.MailDto;
 import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.NewsDto;
 import com.nrgsavers.dto.Product;
+import com.nrgsavers.model.AdminCRUD;
 import com.nrgsavers.model.ProductCRUD;
 import com.nrgsavers.model.UserCRUD;
 
@@ -105,6 +107,25 @@ public class UserUtil extends HttpServlet{
 				//RequestDispatcher rd=req.getRequestDispatcher("/home");
 
 				//rd.forward(req, resp);
+			}
+			if(uri.equals(Constants.VIEW_CLIENT_NEWS))
+			{
+				  List<NewsDto> newsList = new UserCRUD().getActiveNews();
+				  
+				// Put data into Request Object
+					req.setAttribute("newsList", newsList);
+					
+					// Redirect to view jsp.
+					RequestDispatcher rd=req.getRequestDispatcher("/newsView");
+					try {
+						rd.forward(req, resp);
+					} catch (ServletException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			}
 			if(uri.equals(Constants.FORGOT_PASSWORD_PATH))
 			{

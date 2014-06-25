@@ -202,6 +202,9 @@
 	<div id="forgotPasswordResultDiv" style="margin:0 auto;" class="invisible "></div>
 	</form>
 </div>
+</div>
+</div>
+
 <%@include file="/WEB-INF/jsp/footer.jsp" %>
 </body>
 </html>

@@ -4,6 +4,13 @@ public class NewsDto extends DBComponent{
 	private String id;
 private String Title;
 private String Description;
+private String CreatedDate;
+public String getUrl() {
+	return Url;
+}
+public void setUrl(String url) {
+	Url = url;
+}
 private String Url;
 private String Status;
 public String getTitle() {
@@ -18,12 +25,7 @@ public String getDescription() {
 public void setDescription(String description) {
 	Description = description;
 }
-public String getUrl() {
-	return Url;
-}
-public void setUrl(String url) {
-	Url = url;
-}
+
 @Override
 public String toString() {
 	  return "{\"id\":\"" + id + "\", \"title\":\"" + Title + "\", \"description\":\""
@@ -40,6 +42,12 @@ public String getId() {
 }
 public void setId(String id) {
 	this.id = id;
+}
+public String getCreatedDate() {
+	return CreatedDate;
+}
+public void setCreatedDate(String createdDate) {
+	CreatedDate = createdDate;
 }
 
 

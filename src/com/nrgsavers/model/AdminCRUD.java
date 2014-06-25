@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.nrgsavers.dto.DBComponent;
@@ -34,21 +35,25 @@ public class AdminCRUD implements CRUD{
 	@Override
 	public void create(DBComponent dbComponent) {
 		NewsDto newsDto = (NewsDto) dbComponent;
+		Calendar cal = Calendar.getInstance();
+		
+		
 		System.out.println("am in admin news create db method");
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection connection = pool.getConnection();
 		PreparedStatement ps = null;
 
 		String query = 
-				"INSERT INTO news (Heading, Description,Status) " +
-						"VALUES (?, ?, ?)";
+				"INSERT INTO news (Heading, Description, Status, CreatedDate, Url) " +
+						"VALUES (?, ?, ?, ?, ?)";
 		try
 		{        
 			ps = connection.prepareStatement(query);
 			ps.setString(1, newsDto.getTitle());
 			ps.setString(2, newsDto.getDescription());
 			ps.setString(3, newsDto.getStatus());
-
+			ps.setDate(4, new java.sql.Date(cal.getTimeInMillis()));
+			ps.setString(5, newsDto.getUrl());
 			System.out.println(ps.executeUpdate());
 		}
 		catch(SQLException e)

@@ -121,6 +121,17 @@
 	   <url-pattern>/searchview</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+	  <servlet-name>clientnews</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/news.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>clientnews</servlet-name>
+	   <url-pattern>/newsView</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   
 
   
@@ -189,6 +200,15 @@
   <servlet-mapping>
 	  <servlet-name>productAdmin</servlet-name>
 	   <url-pattern>/padmin/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	  <servlet-name>showActiveNews</servlet-name>
+	  <servlet-class>com.nrgsavers.controller.NewsUtil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>showActiveNews</servlet-name>
+	   <url-pattern>/activenews</url-pattern>
   </servlet-mapping>
 
   

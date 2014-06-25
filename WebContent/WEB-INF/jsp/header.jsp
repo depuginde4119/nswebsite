@@ -50,7 +50,7 @@
           
           </li>
           <li><a href="another_page.html">Finance</a></li>
-          <li><a href="another_page.html">News</a></li>
+          <li><a href="activenews">News</a></li>
           <li><a href="contactus">Contact Us</a></li>
          </ul>
       </nav>
@@ -77,7 +77,7 @@
 		          
 		          </li>
 		          <li><a href="another_page.html">Finance</a></li>
-		          <li><a href="another_page.html">News</a></li>
+		          <li><a href="activenews">News</a></li>
 		          <li><a href="contactus">Contact Us</a></li>
 		         </ul>
 		      </nav>

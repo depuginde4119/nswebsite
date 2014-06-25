@@ -12,6 +12,7 @@ public static String FORGOT_PASSWORD_PATH = "forgotPassword";
 
 public static String ADD_NEWS = "addNews";
 public static String VIEW_ALL_NEWS = "viewAllNews";
+public static String VIEW_CLIENT_NEWS = "news";
 public static String MAIL_USERNAME ="mybi@cloudeeva.com";
 public static String MAIL_PASSWORD ="cloud900";
 

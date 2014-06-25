@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.nrgsavers.dto.DBComponent;
 import com.nrgsavers.dto.NewUser;
+import com.nrgsavers.dto.NewsDto;
 import com.nrgsavers.dto.Product;
 
 public class UserCRUD implements CRUD{
@@ -223,6 +224,47 @@ public class UserCRUD implements CRUD{
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
+	}
+	public List<NewsDto> getActiveNews()
+	{
+		List<NewsDto> newsList = new ArrayList<NewsDto>();
+
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection connection = pool.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		NewsDto newsdto ;
+		String query = "SELECT id, Heading, Description, Status, DATE_FORMAT(CreatedDate, '%d/%m/%Y') AS createddate, Url FROM news WHERE Status='Y' LIMIT 10";
+		try
+		{
+			ps = connection.prepareStatement(query);
+			rs = ps.executeQuery();        
+			while(rs.next())
+			{
+				newsdto = new NewsDto();
+				newsdto.setId(rs.getString("id"));
+				newsdto.setTitle(rs.getString("Heading"));
+				newsdto.setDescription(rs.getString("Description"));
+				newsdto.setStatus(rs.getString("Status"));
+				newsdto.setCreatedDate(rs.getString("createddate"));
+				newsdto.setUrl(rs.getString("Url"));
+				newsList.add(newsdto);
+			}
+			return newsList;
+
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			
+		}        
+		finally
+		{
+			DBUtil.closeResultSet(rs);
+			DBUtil.closePreparedStatement(ps);
+			pool.freeConnection(connection);
+		}
+		return newsList;
 	}
 
 }
