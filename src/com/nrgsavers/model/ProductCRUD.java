@@ -17,6 +17,49 @@ public class ProductCRUD implements CRUD {
 	@Override
 	public DBComponent update(DBComponent dbComponent) {
 		// TODO Auto-generated method stub
+		Product product = (Product) dbComponent;
+
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query ="UPDATE `nrgsavers`.`product`SET `Name` = ? ,`Description` = ?, `ProductTypeId` = ?,`Image` = ?,`Price` = ?,`Specifications` = ? WHERE `id` = ?";
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, product.getName());
+            ps.setString(2, product.getDescription());
+            ps.setInt(3, product.getTypeId());
+            if(product.getImage()!=null)
+            {
+            	  ps.setString(4, product.getImage());
+            }else
+            {
+            	  ps.setString(4, "default.png");
+            }
+          
+            ps.setDouble(5, product.getPrice());
+            ps.setString(6, product.getSpecification());
+            ps.setInt(7, product.getId());
+         
+            ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+
+		
+		
+		
+		
+		
 		return null;
 	}
 
@@ -82,17 +125,23 @@ public class ProductCRUD implements CRUD {
         PreparedStatement ps = null;
 
         String query = 
-                "INSERT INTO Product ( Name, Description,  ProductTypeId, , Image, Price,Specifications) " +
-                "VALUES (?,?, ?, ?,?,?)";
+                "INSERT INTO Product ( Name, Description,  ProductTypeId, Image, Price,Specifications) VALUES (?,?,?,?,?,?)";
         try
         {        
             ps = connection.prepareStatement(query);
             ps.setString(1, product.getName());
             ps.setString(2, product.getDescription());
             ps.setInt(3, product.getTypeId());
-            ps.setString(6, product.getImage());
+            if(product.getImage()!=null)
+            {
+            	  ps.setString(4, product.getImage());
+            }else
+            {
+            	  ps.setString(4, "default.png");
+            }
+          
             ps.setDouble(5, product.getPrice());
-            ps.setString(4, product.getSpecification());
+            ps.setString(6, product.getSpecification());
          
             ps.executeUpdate();
         }
@@ -289,7 +338,7 @@ public class ProductCRUD implements CRUD {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "DELETE FROM PRODUCT p WHERE p.id=?";
+        String query = "DELETE FROM PRODUCT  WHERE id=?";
         try
         {
             ps = connection.prepareStatement(query);
@@ -308,6 +357,57 @@ public class ProductCRUD implements CRUD {
             pool.freeConnection(connection);
         }
 		
+	}
+
+	public ArrayList<Product> searchProduct(String keyword) {
+		
+		ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        Product product = null;
+        ArrayList<Product> products= null;
+        boolean ifFirst=true;
+        String query = "SELECT p.id, Name, ProductTypeId, Description, Image, Price,Specifications,pt.TypeName,pt.TypeDescription FROM product p join producttype pt on (p.ProductTypeId= pt.id) where Lower(Name) like Lower('%"+keyword+"%') or Lower(Description) like Lower('%"+keyword+"%');";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            rs= ps.executeQuery();
+            while(rs.next())
+            {
+            	
+            	if(ifFirst)
+            	{
+            		products= new ArrayList<Product>();
+            		ifFirst=false;
+            	}
+               product = new Product();
+               product.setName(rs.getString("Name"));
+               product.setDescription(rs.getString("Description"));
+               product.setImage(rs.getString("Image"));
+               product.setPrice(rs.getDouble("Price"));
+               product.setTypeName(rs.getString("TypeName"));
+               product.setSpecification(rs.getString("Specifications"));
+               product.setTypeDescription(rs.getString("TypeDescription"));
+               product.setTypeId(rs.getInt("ProductTypeId"));
+               products.add(product);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+          
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+		
+		
+		return products;
 	}
 
 }

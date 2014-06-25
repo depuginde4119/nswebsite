@@ -88,18 +88,23 @@ public class Product extends DBComponent {
 	@Override
 	public String toString() {
 		
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("Product DB Component :\n ");
-		buffer.append("ID :"+this.id);
-		buffer.append("Name :"+this.name);
-		buffer.append("Description :"+this.description);
-		buffer.append("Image :"+this.image);
-		buffer.append("Price :"+this.price);
-		buffer.append("Specification :"+this.specification);
-		buffer.append("Type Id :"+this.typeId);
-		buffer.append("Type Description :"+this.typeDescription);
-		buffer.append("Type Name :"+this.typeName);
-		return buffer.toString();
+//		StringBuffer buffer = new StringBuffer();
+//		buffer.append("Product DB Component :\n ");
+//		buffer.append("ID :"+this.id);
+//		buffer.append("Name :"+this.name);
+//		buffer.append("Description :"+this.description);
+//		buffer.append("Image :"+this.image);
+//		buffer.append("Price :"+this.price);
+//		buffer.append("Specification :"+this.specification);
+//		buffer.append("Type Id :"+this.typeId);
+//		buffer.append("Type Description :"+this.typeDescription);
+//		buffer.append("Type Name :"+this.typeName);
+//		return buffer.toString();
+		
+		 return "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"description\":\""
+         + description.replace("\"", "\\\"") + "\",  \"price\":\"" + price + "\", \"typeName\":\"" + typeName + "\"}";
+		 
+//		 return "{\"id\":\"" + id + "\", \"name\":\"" + name + "\", \"typeName\":\"" + typeName + "\"}";
 	}
 	
 }

@@ -100,6 +100,7 @@ public class UserUtil extends HttpServlet{
 			if(uri.equals(Constants.LOGOUT_PATH))
 			{
 				req.getSession().removeAttribute("loggedUser");
+				req.getSession().removeAttribute("userRole");
 				resp.sendRedirect(req.getContextPath());
 				//RequestDispatcher rd=req.getRequestDispatcher("/home");
 

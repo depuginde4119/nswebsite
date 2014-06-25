@@ -158,6 +158,8 @@ ul.sf-menu li {
   position: relative;
   font-size: 1em;
 }
+
+
   
 ul.sf-menu li:hover { 
   visibility: inherit; /* fixes IE7 'sticky bug' */ 
@@ -412,6 +414,12 @@ footer .connect .twitter
 {
 	background-image: url("../images/banner/about_banner.png");
 }
+.search_banner
+{
+	background-image: url("../images/banner/search-banner.jpg");
+}
+
+
 .body_container
 {
 	
@@ -569,4 +577,28 @@ div.error
 	width:35%;
 	float:right;
 	margin-left: 4%;
+}
+
+
+/*General CSS for the Entire website */
+
+.body_container h2
+{
+	font-style: normal;
+	font-size: 2.1em;
+	padding: 0px 0px 0.25em;
+	margin: 1.5em 0px 0.5em;
+	border-bottom: 1px solid #F5F5F5;
+	line-height: 1.2;
+	color: rgba(140, 147, 140, 1);
+	
+}
+
+.theme a
+{
+padding: 1px;
+
+color: #FFFFFF;
+background-color: #95AD19;
+}
 }

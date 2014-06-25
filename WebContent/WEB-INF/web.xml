@@ -20,6 +20,24 @@
 	   <url-pattern>/home</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+	  <servlet-name>padminview</servlet-name>
+	  <jsp-file>/WEB-INF/jsp/admin/adminprod.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>padminview</servlet-name>	
+	   <url-pattern>/padminv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	  <servlet-name>padminviewproduct</servlet-name>
+	  <jsp-file>/WEB-INF/jsp/admin/EditProduct.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>padminviewproduct</servlet-name>	
+	   <url-pattern>/padminvp</url-pattern>
+  </servlet-mapping>
+
   
    <servlet>
 	  <servlet-name>productview</servlet-name>
@@ -94,6 +112,19 @@
 	   <url-pattern>/addnews</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+	  <servlet-name>searchjsp</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/search.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>searchjsp</servlet-name>
+	   <url-pattern>/searchview</url-pattern>
+  </servlet-mapping>
+  
+  
+
+  
+
   
   <error-page>
   <error-code>404</error-code>
@@ -103,6 +134,17 @@
 
 
 <!-- Servlet Configuration details -->
+  <servlet>
+	  <servlet-name>searchServlet</servlet-name>
+	  <servlet-class>com.nrgsavers.controller.SearchServlet</servlet-class>
+	 
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>searchServlet</servlet-name>
+	   <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
 	  <servlet-name>product</servlet-name>
 	  <servlet-class>com.nrgsavers.controller.ProductUtil</servlet-class>
@@ -136,6 +178,17 @@
   <servlet-mapping>
 	  <servlet-name>adminController</servlet-name>
 	   <url-pattern>/admin/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+	  <servlet-name>productAdmin</servlet-name>
+	  <servlet-class>com.nrgsavers.admin.ProductAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>productAdmin</servlet-name>
+	   <url-pattern>/padmin/*</url-pattern>
   </servlet-mapping>
 
   

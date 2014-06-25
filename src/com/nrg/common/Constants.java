@@ -34,6 +34,7 @@ public static String  MC_PRODUCT_CARTSUBMIT="mpcs";
 public static String  MC_ADMIN_ALLPRODUCT="maap";
 public static String  MC_ADMIN_UPDATEPRODUCT="maup";
 public static String  MC_ADMIN_DELETEPRODUCT="madp";
+public static String  MC_ADMIN_VIEWPRODUCT="mavp";
 
 
 
