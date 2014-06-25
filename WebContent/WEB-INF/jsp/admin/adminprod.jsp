@@ -32,10 +32,42 @@
        colNames:['ID.','Name', 'Description','Type Name','Action'],
        colModel:[
            {name:'id',index:'id', width:50},
-           {name:'name',index:'name', width:200},
+           {name:'name',index:'name', width:200, formatter: 'showlink', formatoptions:
+           {
+               baseLinkUrl:'javascript:',
+               showAction: "editproduct('",
+               
+               addParam: "');"
+
+           }},
            {name:'description',index:'description', width:400},
            {name:'typeName',index:'typeName', width:100},
-           {name: 'myac', width:80, fixed:false, editformbutton: true,  sortable:false, resize:false, formatter:'actions', formatoptions:{keys:true,  editbutton: true, onEdit: function(rowid){alert("hello");} }},
+           {name: 'myac', width:80, fixed:false, editformbutton: true,  sortable:false, resize:false, formatter:'actions', formatoptions:{keys:true,  editbutton: true, onEdit: function(rowid){alert("hello"); },
+           
+           delOptions:{
+               url: "padmin?mc=madp",
+               recreateForm: true, 
+                      
+               onclickSubmit :function(params, postdata) {
+            	   
+            	   var pid=$('#'+postdata+" td[aria-describedby='projectTable_id']").html();
+               	 params.url += '&pid=' + pid;
+               	 console.log("log url "+params.url);
+               }
+           },
+           editOptions:{
+               url: "padmin?mc=maup",
+               recreateForm: true, 
+         
+               onclickSubmit :function(params, postdata) {
+            	   
+            	   var pid=$('#'+postdata+" td[aria-describedby='projectTable_id']").html();
+               	 params.url += '&pid=' + pid;
+               	 console.log("log url "+params.url);
+               }
+           }
+           } 
+           }
            
         ],
        rowNum:20,
@@ -50,6 +82,7 @@
        },
        pager: "#pagingDiv",
        viewrecords: true,
+       gridview:true,
        caption: "Products"
    });
     
@@ -62,13 +95,23 @@
                .trigger("reloadGrid");
    });
    
+ 
      });
+     
+//      function editProduct(rowid)
+//      {
+    	 
+//     	 console.log("rowid"+rowid);
+    	 
+//      }
      
      function editproduct(rowid)
      {
-    	 alert("rowid "+rowid);
     	 
-     }
+    	 var id= rowid.substring(rowid.indexOf("=")+1,rowid.length);
+    	 var pid=$('#'+id+" td[aria-describedby='projectTable_id']").html();
+    	window.location.href="padmin?mc=mavp&pid="+pid;	 
+    }
   </script>
 </head>	
 <body>

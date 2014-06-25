@@ -29,6 +29,14 @@
 	   <url-pattern>/padminv</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+	  <servlet-name>padminviewproduct</servlet-name>
+	  <jsp-file>/WEB-INF/jsp/admin/EditProduct.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>padminviewproduct</servlet-name>	
+	   <url-pattern>/padminvp</url-pattern>
+  </servlet-mapping>
 
   
    <servlet>
@@ -180,7 +188,7 @@
   </servlet>
   <servlet-mapping>
 	  <servlet-name>productAdmin</servlet-name>
-	   <url-pattern>/padmin</url-pattern>
+	   <url-pattern>/padmin/*</url-pattern>
   </servlet-mapping>
 
   

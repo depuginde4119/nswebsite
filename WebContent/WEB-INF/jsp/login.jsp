@@ -109,6 +109,9 @@
 				});
 			}
 		});
+		
+		
+		
 		$("#forgotPasswordForm #username").focus(function(){
 			var visible = $("#forgotPasswordResultDiv").is(":visible");
 			if(visible)
@@ -116,10 +119,16 @@
 				$("#forgotPasswordResultDiv").hide();
 				}
 		});
+		
+		
+		
 		$("#forgotPassword").click(function(){  
 			$("#loginForm").hide();
 			$("#forgotPasswordForm").show();
 		});
+		
+		
+		
 		$("#backToLogin").click(function(){
 			$("#loginForm").show();
 			$("#forgotPasswordForm").hide();
@@ -132,6 +141,7 @@
 <body>
 
 <%@include file="/WEB-INF/jsp/header.jsp" %>
+
 <div class="bodyContent">
 <div class="constrain contactus_banner banner centered " >
 </div>

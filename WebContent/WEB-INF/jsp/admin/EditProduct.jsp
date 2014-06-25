@@ -1,4 +1,28 @@
-<form id="productform">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Admin Products</title>
+<link rel="stylesheet" type="text/css" href="./css/nrg.css">
+<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+
+</head>	
+<body>
+<%@include file="/WEB-INF/jsp/header.jsp" %>
+
+<div class="bodyContent">
+<div class="constrain banner centered product_banner " >
+</div>
+<div class="body_container constrain centered ">
+
+<div class="centered width750px constrain">
+
+
+
+<form id="productform" action="padmin" method="post">
 
 <table>
 <tr colspan="2">
@@ -8,11 +32,15 @@
 <td>id</td>
 <td> ${product.id} </td>
 </tr>
+<tr class="hide">
+<td> <input type="hidden" name="mc" value="maup"> </td>
+<td> <input type="hidden" value="${product.id}" name="pid"> </td>
+</tr>
+
 <tr>
 <td>Name</td>
 <td> <input type="text" name="pname" value="${product.name}"/></td>
 </tr>
-
 <tr>
 <td>Product Types</td>
 <td> 
@@ -45,7 +73,7 @@
 </tr>
 <tr>
 <td>Image</td>
-<td> <input type="file" name="pimage" /><br> <label>${product.image}</label></td>
+<td> <input type="text" disabled name="pimage" value="${product.image}" /><br> </td>
 </tr>
 
 <tr>
@@ -56,3 +84,36 @@
 </table>
 
 </form>
+ 
+</div>
+
+</div>
+
+
+</div>
+
+<%@include file="/WEB-INF/jsp/footer.jsp" %>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -64,9 +64,8 @@ public class ProductAdmin extends HttpServlet{
 //			List<ProductType> productTypes= productCRUD.getAllProductType();
 //			req.setAttribute("productTypes", productTypes);
 			
-			
 			// Redirect to view jsp.
-			RequestDispatcher rd=req.getRequestDispatcher("/padminview");
+			RequestDispatcher rd=req.getRequestDispatcher("/padminv");
 			try {
 				rd.forward(req, resp);
 			} catch (ServletException e) {
@@ -107,6 +106,37 @@ public class ProductAdmin extends HttpServlet{
 //				e.printStackTrace();
 //			}
 			
+		}else if(uri.equals(Constants.MC_ADMIN_VIEWPRODUCT))
+		{
+			String id= (String) ((req.getParameter("pid")!=null)?(req.getParameter("pid")):"");
+			Product product=null;
+			
+				ProductCRUD productCRUD= new ProductCRUD();
+			if(!"".equals(id))
+			{
+				product= productCRUD.getProduct(id);
+				
+				
+			}
+			
+			List<ProductType> productstypes=productCRUD.getAllProductType();
+			
+			req.setAttribute("product", product);
+			req.setAttribute("productTypes", productstypes);
+			RequestDispatcher rd= getServletContext().getRequestDispatcher("/padminvp");
+			try {
+				
+				rd.forward(req, resp);
+				
+			} catch (ServletException e) {
+				System.out.println("error "+e.toString());
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		else if(uri.equals(Constants.MC_ADMIN_UPDATEPRODUCT))
 		{
@@ -118,7 +148,8 @@ public class ProductAdmin extends HttpServlet{
 			product.setDescription(req.getParameter("pdesc").toString());
 			product.setPrice(Double.parseDouble(req.getParameter("pprice")));
 			product.setSpecification(req.getParameter("pspec").toString());
-			product.setImage(req.getParameter("pimage").toString());
+			product.setTypeId(req.getParameter("ptype")!=null?Integer.parseInt(req.getParameter("ptype").toString()):0);
+			product.setImage(req.getParameter("pimage")!=null?req.getParameter("pimage").toString():"default.png");
 			
 			ProductCRUD productCRUD = new ProductCRUD();
 			if(product.getId()==0)
@@ -129,21 +160,7 @@ public class ProductAdmin extends HttpServlet{
 				productCRUD.update(product);
 			}
 			
-		}
-		else if(uri.equals(Constants.MC_ADMIN_DELETEPRODUCT))
-		{
-
-			String ProductId= req.getParameter("pid");
-			ProductCRUD productCRUD= new ProductCRUD();
-			productCRUD.delete(ProductId);
-			
-			List<Product> products= productCRUD.getAllProduct();
-			
-			// Put data into Request Object
-			req.setAttribute("product", products);
-												
-			// Redirect to view jsp.
-			RequestDispatcher rd=req.getRequestDispatcher("/listProducts");
+			RequestDispatcher rd=req.getRequestDispatcher("/padminv");
 			try {
 				rd.forward(req, resp);
 			} catch (ServletException e) {
@@ -153,6 +170,31 @@ public class ProductAdmin extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+		}
+		else if(uri.equals(Constants.MC_ADMIN_DELETEPRODUCT))
+		{
+
+			String ProductId= req.getParameter("pid");
+			ProductCRUD productCRUD= new ProductCRUD();
+			productCRUD.delete(ProductId);
+			
+//			List<Product> products= productCRUD.getAllProduct();
+//			
+//			// Put data into Request Object
+//			req.setAttribute("product", products);
+												
+			// Redirect to view jsp.
+//			RequestDispatcher rd=req.getRequestDispatcher("/listProducts");
+//			try {
+//				rd.forward(req, resp);
+//			} catch (ServletException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e){
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 	   }
 	
 	}
