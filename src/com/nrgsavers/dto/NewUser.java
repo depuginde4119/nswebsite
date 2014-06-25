@@ -7,7 +7,7 @@ public class NewUser extends DBComponent{
 	private String Password;
 	private String TempPassword;
 	private String Role;
-	
+	private String Id;
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -59,6 +59,14 @@ public class NewUser extends DBComponent{
 	}
 	public void setRole(String role){
 		Role = role;
+	}
+
+	public String getId() {
+		return Id;
+	}
+
+	public void setId(String id) {
+		Id = id;
 	}
 
 }

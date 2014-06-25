@@ -47,6 +47,26 @@ public class UserUtil extends HttpServlet{
 		int p = temp_uri.lastIndexOf("/");
 		try{
 			String uri=temp_uri.substring(p+1);
+			
+			if(uri.equals(Constants.SAVE_EDITED_PROFILE))
+			{
+				NewUser userDto = new NewUser();
+				userDto.setName(req.getParameter("name"));
+				userDto.setEmail(req.getParameter("email"));
+				userDto.setPhone(req.getParameter("phone"));
+				userDto.setPassword(req.getParameter("password"));
+				new UserCRUD().editProfile(userDto);
+			}
+			
+			if(uri.equals(Constants.NEW_USER_PATH))
+			{
+				NewUser userDto = new NewUser();
+				userDto.setName(req.getParameter("name"));
+				userDto.setEmail(req.getParameter("email"));
+				userDto.setPhone(req.getParameter("phone"));
+				userDto.setPassword(req.getParameter("password"));
+				new UserCRUD().create(userDto);
+			}
 			if(uri.equals(Constants.NEW_USER_PATH))
 			{
 				NewUser userDto = new NewUser();
@@ -90,6 +110,7 @@ public class UserUtil extends HttpServlet{
 					NewUser dto = new UserCRUD().getUser(userDto);
 					req.getSession().setAttribute("loggedUser",dto.getName());
 					req.getSession().setAttribute("userRole",dto.getRole());
+					req.getSession().setAttribute("userId",dto.getId());
 					resp.getWriter().print("Success");
 				}
 				else

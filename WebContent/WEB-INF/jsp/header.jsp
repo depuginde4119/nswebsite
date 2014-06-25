@@ -18,7 +18,7 @@
 	</c:if>
 	
 	<c:if test="${!empty sessionScope.loggedUser}">
-	Logged as  <a href='editProifile?<c:out value="${sessionScope.loggedUser}"/>' style="padding-left: 5px;"><c:out value="${sessionScope.loggedUser}"/></a>
+	Logged as  <a href='editProfile?id=<c:out value="${sessionScope.userId}"/>' style="padding-left: 5px;"><c:out value="${sessionScope.loggedUser}"/></a>
 	
 	<input type="hidden" id="isLogged" value="${sessionScope.loggedUser}">
 	<a href="user/userLogout">Logout</a><br> 
@@ -87,7 +87,7 @@
 		 <nav class="constrain centered grid grid-pad clearfix">
 		        <ul class="sf-menu" id="nav">
 		          <li class="selected"><a href="addnews">News</a></li>
-		          <li><a href="#">Settings</a></li>
+<!-- 		          <li><a href="#">Settings</a></li> -->
 		          <li><a href="padminv">Products</a>
 		         </li>
 		         

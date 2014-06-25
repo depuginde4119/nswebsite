@@ -129,6 +129,14 @@
 	  <servlet-name>clientnews</servlet-name>
 	   <url-pattern>/newsView</url-pattern>
   </servlet-mapping>
+  <servlet>
+	  <servlet-name>editProfile</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/editProfile.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>editProfile</servlet-name>
+	   <url-pattern>/profileEditView</url-pattern>
+  </servlet-mapping>
   
   
   
@@ -210,7 +218,14 @@
 	  <servlet-name>showActiveNews</servlet-name>
 	   <url-pattern>/activenews</url-pattern>
   </servlet-mapping>
-
+<servlet>
+	  <servlet-name>profileEdit</servlet-name>
+	  <servlet-class>com.nrgsavers.controller.ProfileEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>profileEdit</servlet-name>
+	   <url-pattern>/editProfile</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>
