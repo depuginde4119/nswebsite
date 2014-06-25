@@ -12,8 +12,8 @@ public static String FORGOT_PASSWORD_PATH = "forgotPassword";
 
 public static String ADD_NEWS = "addNews";
 public static String VIEW_ALL_NEWS = "viewAllNews";
-public static String MAIL_USERNAME ="depuginde4119@gmail.com";
-public static String MAIL_PASSWORD ="08U11A1231";
+public static String MAIL_USERNAME ="mybi@cloudeeva.com";
+public static String MAIL_PASSWORD ="cloud900";
 
 public static String CHANGE_PASSWORD_SUBJECT_STRING = "Change Password";
 public static String HTML_CONTENT_TYPE = "text/html";
