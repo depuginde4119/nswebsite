@@ -29,7 +29,7 @@
 <th> Product </th>
 </tr>
 <tr>
-<td>id</td>
+<td>ID</td>
 <td> ${product.id} </td>
 </tr>
 <tr class="hide">
@@ -78,7 +78,7 @@
 
 <tr>
 <td><input type="submit" value="SUBMIT" name="psubmit" /></td>
-<td><input type="button" value="CANCEL" name="pcancel" /></td>
+<td><input type="button" value="CANCEL" name="pcancel" onclick="window.location.href='padmin';"/></td>
 </tr>
 
 </table>

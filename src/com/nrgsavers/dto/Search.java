@@ -16,22 +16,21 @@ public class Search {
     
     
     ArrayList<Product> products=null;
-        ArrayList<Object> news=null;
+        ArrayList<NewsDto> news=null;
 
     public ArrayList<Product> getProducts() {
         return products;
     }
 
-    public ArrayList<Object> getNews() {
+    public ArrayList<NewsDto> getNews() {
         return news;
     }
-
 
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
 
-    public void setNews(ArrayList<Object> news) {
+    public void setNews(ArrayList<NewsDto> news) {
         this.news = news;
     }
     

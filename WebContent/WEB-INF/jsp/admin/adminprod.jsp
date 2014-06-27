@@ -42,7 +42,7 @@
            }},
            {name:'description',index:'description', width:400},
            {name:'typeName',index:'typeName', width:100},
-           {name: 'myac', width:80, fixed:false, editformbutton: true,  sortable:false, resize:false, formatter:'actions', formatoptions:{keys:true,  editbutton: true, onEdit: function(rowid){alert("hello"); },
+           {name: 'myac', width:80, fixed:false, editformbutton: true,  sortable:false, resize:false, formatter:'actions', formatoptions:{keys:true,  editbutton: false, onEdit: function(rowid){alert("hello"); },
            
            delOptions:{
                url: "padmin?mc=madp",
@@ -126,8 +126,10 @@
 
  <table id="projectTable"></table>
               <div id="pagingDiv"></div>
- 
+ Note : Click on name of the product to edit it.
 </div>
+
+
 
 </div>
 
