@@ -48,8 +48,8 @@ public class SearchServlet extends HttpServlet {
             ArrayList<Product> products=productCRUD.searchProduct(keyword);
             search.setProducts(products);
             
-//            ArrayList<NewsDto> news=.searchProduct(keyword);
-//            search.setProducts(products);
+            ArrayList<NewsDto> news=NewsUtil.searchNews(keyword);
+            search.setNews(news);
             
             request.setAttribute("search", search);
          }

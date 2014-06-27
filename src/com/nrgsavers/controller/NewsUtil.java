@@ -1,6 +1,11 @@
 package com.nrgsavers.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nrgsavers.dto.NewsDto;
+import com.nrgsavers.dto.Product;
+import com.nrgsavers.model.ConnectionPool;
+import com.nrgsavers.model.DBUtil;
 import com.nrgsavers.model.UserCRUD;
 
 public class NewsUtil extends HttpServlet{
@@ -43,5 +51,56 @@ public class NewsUtil extends HttpServlet{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+	}
+
+
+	public static ArrayList<NewsDto> searchNews(String keyword) {
+	
+		ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        NewsDto news = null;
+        ArrayList<NewsDto> newss= null;
+        boolean ifFirst=true;
+        String query = "SELECT id, Heading, Description, Status, CreatedDate, Url FROM news where Status='active' and Lower(Heading) like Lower('%"+keyword+"%') or Lower(Description) like Lower('%"+keyword+"%')  ";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            rs= ps.executeQuery();
+            while(rs.next())
+            {
+            	
+            	if(ifFirst)
+            	{
+            		newss= new ArrayList<NewsDto>();
+            		ifFirst=false;
+            	}
+            	news= new NewsDto();
+            	news.setDescription(rs.getString("Description"));
+            	news.setTitle(rs.getString("Heading"));
+            	news.setUrl(rs.getString("Url"));
+            	news.setStatus(rs.getString("Status"));
+            	news.setCreatedDate(rs.getString("createdDate"));
+            	
+            	newss.add(news);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+          
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+		
+		
+		return newss;
+	
 	}
 }
