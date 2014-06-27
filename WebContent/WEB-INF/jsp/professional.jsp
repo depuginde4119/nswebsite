@@ -256,44 +256,46 @@ function restform()
 <div class="body_container constrain centered ">
 
 <div class="centered constrain width500px">
-
+<div id="volunteer-form">
+                <div id="form_wrapper">
 <div class="QuoteFormContainer">
   <h1>Get your Quote now</h1>
 <form id="professionalform">
-  <table>
+  <table class="inputfield">
 	
 <tr>
-   <td>
+   <td class="col-1">
 	    <label>Name</label>
+	   
 	</td>
-	<td>
+	<td class="col-2">
 	       <input type="text" id="name" name="name" >
 	</td>
 </tr>
 	<tr>
 	
-	<td>
+	<td class="col-1">
 	  <label>Email</label>
 	</td>
-	<td>
+	<td class="col-2">
 	     <input type="text" id="email"   name="email">
 	</td>
 </tr>
 <tr>
 	
- <td>
+ <td class="col-1">
 	<label>Contact #</label>
 </td>
-	<td>
+	<td class="col-2">
 	<input type="text" id="contact"  name="contact">
 	</td>
 </tr>
 	
 	<tr>
-	<td>
+	<td class="col-1">
 	<label>Select the Service</label>
 	
-	</td><td>
+	</td><td class="col-2">
 	
 	
 	<select  id="service" name="service"> 
@@ -310,7 +312,7 @@ function restform()
 <!-- General installation -->
 
 <tr colspan="2" class="serviceDetails  service_1">
-<th class="serviceHeader">General Installation</th>
+<th class="serviceHeader"><b>General Installation</b></th>
 </tr>
 
 <tr class="serviceDetails  service_1">
@@ -318,29 +320,29 @@ function restform()
 <!-- 	<div class="serviceDetails" id="service_1"> -->
 <!-- 		<!-- 	General Installation --> 
 <!-- 			<div class="row"> -->
-<td>
+<td class="col-1">
 				<label>Product Type</label>
-				</td><td>
+				</td><td class="col-2">
 				
 				<select id="productType" name="productType"> </select>
 				
 </td>
 </tr>
 <tr class="serviceDetails  service_1">
-				<td>
+				<td class="col-1">
 				     <label>Product</label>
 				</td>
-				<td>
+				<td class="col-2">
 				     <select id="product" name="product"> </select>
 				</td>
 </tr>				
 	
 <tr class="serviceDetails  service_1">
-         <td>
+         <td class="col-1">
          
 				<label>Units</label>
 				</td>
-				<td>
+				<td class="col-2">
 				
 				<input type="text" name="units_1" id="units_1"/>
 				</td>
@@ -350,17 +352,17 @@ function restform()
 </tr>
 	
 <tr  class="serviceDetails  service_2">
-     <td>
+     <td class="col-1">
 			<label>Area</label>
 	</td>
-	<td>	<input type="text" name="area_2"/></td>
+	<td class="col-2">	<input type="text" name="area_2"/></td>
 </tr>
 		
 <tr  class="serviceDetails  service_2">
-     <td>
+     <td class="col-1">
 			<label>Underground Water system</label>
 		</td>
-		<td>	
+		<td class="col-2">	
 			<input type="radio" name="underGroundWater" value="1"  checked="checked">YES
 			
 			<input type="radio" name="underGroundWater" value="0">NO
@@ -372,18 +374,18 @@ function restform()
 </tr>
 	
 <tr  class="serviceDetails  service_3">
-     <td>
+     <td class="col-1">
 		<label>Capacity</label>
-			</td><td>
+			</td><td class="col-2">
 			<input type="text" name="capacity_3"/>
 			</td>
 </tr>
 		
 <tr  class="serviceDetails  service_3">
-     <td>
+     <td class="col-1">
 			<label>Pump type</label>
 		</td>
-		<td>
+		<td class="col-2">
 			<input type="radio" name="pumpType_3" value="100"  checked="checked">100 KV
 			<input type="radio" name="pumpType_3" value="200">200 KV
 			<input type="radio" name="pumpType_3" value="300">300 KV
@@ -401,26 +403,26 @@ function restform()
 <!-- 	<div class="serviceDetails hide" id="service_4"> -->
 <!-- <!-- 	Gardening --> 
 <!-- 	<div class="row"> -->
-<td>
+<td class="col-1">
 		<label>Area</label>
-		</td><td>
+		</td><td class="col-2">
 		<input type="text" name="area_4"/>
 		</td>
 </tr>
 
 <tr  class="serviceDetails  service_4">
-<td>
+<td class="col-1">
 		<label>Green House</label>
 		</td>
-		<td>
+		<td class="col-2">
 		<input type="radio" name="greenHouse_4" value="1"  checked="checked">YES
 			<input type="radio" name="greenHouse_4" value="0">NO
 			</td>
 			</tr>
 <tr  class="serviceDetails  service_4">
-<td>
+<td class="col-1">
 		<label>Automatic Drip System</label> 
-		</td> <td>
+		</td> <td class="col-2">
 			<input type="radio" name="dripSystem_4" value="1"  checked="checked">YES
 			<input type="radio" name="dripSystem_4" value="0">NO
 			</td>
@@ -431,17 +433,17 @@ function restform()
 </tr>
 
 <tr  class="serviceDetails  service_5">
-<td>
+<td class="col-1">
 		<label>Area</label>
 		</td>
-		<td>
+		<td class="col-2">
 		<input type="text" name="area_5"/>
 		</td>
 <tr  class="serviceDetails  service_5">
-<td>
+<td class="col-1">
 		<label>Variant</label>
 		</td>
-		<td>
+		<td class="col-2">
 		<select  name="variant_5"> 
 			<option value="100" selected="selected">Split</option>
 			<option value="200">Center</option>
@@ -449,17 +451,20 @@ function restform()
 		</td>
 
 <tr>
-<td>
+<td class="col-1">
 
-	<input type="submit" value="SUBMIT">
+	
 	</td>
-	<td>
-	<input type="button" value="CANCEL" onclick="restform();">
+	<td class="col-2">
+	<input type="image" src="./images/submit1.png" value="SUBMIT" style="margin-left:15px;margin-right:15px;">
+	<input type="image" src="./images/cancel.png" value="CANCEL" onclick="restform();" style="margin-left:15px;margin-right:15px;">
 	</td>
 	</tr>
 	
 	</table>
 	</form>
+</div>
+</div>
 
 </div>
 <div class="QuoteResponceContainer hide" >

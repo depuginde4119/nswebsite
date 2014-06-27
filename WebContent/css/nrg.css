@@ -688,6 +688,7 @@ margin: 0px auto;
 border: 2px solid #ccc;	
 }
 
+
 .mycarttable th
 {
 	border: 1px solid #ccc;	
@@ -735,4 +736,94 @@ ul > ul > li
 	
 }
 
+
+
+/* -----------FORM LAYOUT  ----------- */
+#volunteer-form 
+{
+    width:100%;
+    height:auto;
+    margin-top:40px;
+    margin-bottom:20px;
+    color:#323D43;
+    float:left;
+    padding:10px;
+    *border:solid 10px #7F9B4E;
+   
+}
+/* Form */
+
+#form_wrapper
+{
+    margin:0 auto;
+    height:auto;
+    width:100%;
+}
+
+ 
+
+ 
+#form_wrapper h1
+{
+    font-size:24px;
+    font-family:font-bold;
+    margin-bottom:20px;
+    color:#0066cc;
+    text-align:center;
+}
+
+#form_wrapper h3
+{
+    font-family:font-bold;
+    margin-bottom:15px;
+    color:#7F9B4E;
+    text-align:left;
+}
+#form_wrapper select 
+{
+    width:220px;
+}
+#form_wrapper label{
+ 
+margin-bottom:18px;
+font-weight:bold;
+text-align:right;
+display:block;
+}
+#form_wrapper .small{
+color:#666666;
+font-size:11px;
+font-weight:normal;
+text-align:right;
+display:block;
+}
+
+.col-1
+{
+ 
+    width:20%;
+    float:left;
+}
+.col-2
+{
+    width:75%;
+    float:right;  
+}
+
+.inputfield input[type=text]{
+	width:350px;
+	}
+	
+	.loginfield input[type=text] {
+	width:280px;
+	}
+	.loginfield input[type=password] {
+	width:280px;
+	}
+	
+.inputfield select {
+	width:350px !important;
+	}
+
+/* Form */
 

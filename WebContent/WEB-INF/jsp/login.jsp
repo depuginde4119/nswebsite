@@ -146,62 +146,144 @@
 <div class="constrain login_banner banner centered " >
 </div>
 <div class="contact_us_container constrain centered ">
-<div id="form_container" style="padding:50px;">
+<!-- <div id="form_container" style="padding:50px;"> -->
 	
 		
-		<form id="loginForm" name="loginForm" method="post" action="" autocomplete="off">
-		<table style="margin-left: auto;margin-right: auto;">
-		<tr><td>UserName </td>
-		<td>:</td>
-		<td><input type="text" id="username" name="username"/></td>
-		</tr>
+<!-- 		<form id="loginForm" name="loginForm" method="post" action="" autocomplete="off"> -->
+<!-- 		<table style="margin-left: auto;margin-right: auto;"> -->
+<!-- 		<tr><td>UserName </td> -->
+<!-- 		<td>:</td> -->
+<!-- 		<td><input type="text" id="username" name="username"/></td> -->
+<!-- 		</tr> -->
 		
-		<tr>
-		<td>Password </td>
-		<td>:</td>
-		<td><input type="password" id="password" name="password"/></td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 		<td>Password </td> -->
+<!-- 		<td>:</td> -->
+<!-- 		<td><input type="password" id="password" name="password"/></td> -->
+<!-- 		</tr> -->
 		
-		<tr>
+<!-- 		<tr> -->
 		
-		<td colspan="3" style="text-align: center;"><input type="submit" value="Login"/></td>
-		</tr>
-		<tr>
-		<td colspan="3"></td>
-		</tr>
-		<tr>
-		<td colspan="3"><a id="forgotPassword" class="cursor_pointer">Forgot Password ?</a></td>
-		</tr>
+<!-- 		<td colspan="3" style="text-align: center;"><input type="submit" value="Login"/></td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td colspan="3"></td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td colspan="3"><a id="forgotPassword" class="cursor_pointer">Forgot Password ?</a></td> -->
+<!-- 		</tr> -->
 		
-	</table>
-	</form>
+<!-- 	</table> -->
+<!-- 	</form> -->
 	
-	<form id="forgotPasswordForm" name="forgotPasswordForm"  class="invisible" method="post" action="" autocomplete="off">
-		<table style="margin-left: auto;margin-right: auto;">
-		<tr><td>UserName </td>
-		<td>:</td>
-		<td><input type="text" id="username" name="username"/></td>
-		</tr>
+<!-- 	<form id="forgotPasswordForm" name="forgotPasswordForm"  class="invisible" method="post" action="" autocomplete="off"> -->
+<!-- 		<table style="margin-left: auto;margin-right: auto;"> -->
+<!-- 		<tr><td>UserName </td> -->
+<!-- 		<td>:</td> -->
+<!-- 		<td><input type="text" id="username" name="username"/></td> -->
+<!-- 		</tr> -->
 		
-		<tr>
+<!-- 		<tr> -->
 		
-		<td colspan="3" style="text-align: center;"><input type="submit" value="Submit"/></td>
-		</tr>
-		<tr>
-		<td colspan="3"></td>
-		</tr>
-		<tr>
-		<td colspan="3"><a id="backToLogin" class="cursor_pointer">Login</a></td>
-		</tr>
-		<tr>
-		<td colspan="3"></td>
-		</tr>
+<!-- 		<td colspan="3" style="text-align: center;"><input type="submit" value="Submit"/></td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td colspan="3"></td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td colspan="3"><a id="backToLogin" class="cursor_pointer">Login</a></td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td colspan="3"></td> -->
+<!-- 		</tr> -->
 		
 		
-	</table>
-	<div id="forgotPasswordResultDiv" style="margin:0 auto;" class="invisible "></div>
-	</form>
-</div>
+<!-- 	</table> -->
+<!-- 	<div id="forgotPasswordResultDiv" style="margin:0 auto;" class="invisible "></div> -->
+<!-- 	</form> -->
+<!-- </div> -->
+
+
+<div id="volunteer-form" style="padding-top: 30px;">
+                <div id="form_wrapper" style="height:300px;">
+             
+                   <form id="loginForm" name="loginForm" method="post" action="" autocomplete="off">
+
+                            <table class="loginfield" style="margin-left: auto;margin-right: auto;width:500px;">
+                                
+                                <tr>
+                                    <td class="col-1">
+                                        <label> Username
+                                        <span class="small">Enter Your Username</span>
+                                        </label>
+                                    </td>
+                                    <td class="col-2">
+                                       
+                                        
+                                         <input type="text" id="username" name="username" value=""/>                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-1">
+                                        <label >Password
+                                        <span class="small">Enter Your Password</span>
+                                        </label>
+                                    </td>
+                                    <td class="col-2">
+                                         
+                                       <input type="password" id="password" name="password" value=""/>
+                                    </td>
+                                </tr>
+                               
+                               
+                        </table>
+                        <center>
+                          <input type="image" src="./images/login.png" value="LOGIN" />
+                        </center>
+                        
+                        <center>
+                        <div style="padding-top: 20px;">
+                          <a  id="forgotPassword" class="cursor_pointer"><u>Forgot Password ?</u></a>
+                     </div>   </center>
+                    </form>
+                    
+                     <form id="forgotPasswordForm" name="forgotPasswordForm" class="invisible" method="post" action="" autocomplete="off">
+
+                            <table class="loginfield" style="margin-left: auto;margin-right: auto;width:500px;">
+                                
+                                <tr>
+                                    <td class="col-1">
+                                        <label> Username
+                                        <span class="small">Enter Your Username</span>
+                                        </label>
+                                    </td>
+                                    <td class="col-2">
+                                        <input type="text" id="username" name="username" value=""/>                       
+                                    </td>
+                                </tr>
+                                
+                        </table>
+                       
+                        <center>
+                          <input type="image" src="./images/submit1.png" value="SUBMIT" />
+                        </center>
+                        
+                       
+                        
+                        <center>
+                        <div style="padding-top: 20px;">
+                         <a id="backToLogin"  class="cursor_pointer"><u>&lt;&lt;&nbsp;Back To Login</u></a>
+                     </div>   </center>
+                    </form>
+                    <div id="forgotPasswordResultDiv" style="margin:0 auto;" class="invisible "></div>
+                    
+                </div>
+            </div>
+            
+            
+            
+            
+            
 </div>
 </div>
 
