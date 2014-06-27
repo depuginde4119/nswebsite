@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -110,7 +111,7 @@
 			}, {
 				name : 'title',
 				index : 'title',
-				width : 100
+				width : 150
 			}, {
 				name : 'description',
 				index : 'description',
@@ -125,7 +126,7 @@
 			height : 460,
 			pager : "#pagingDiv",
 			viewrecords : true,
-			caption : "Json Example"
+			caption : "News"
 		});
 		$("#addnewsButton").click(function() {
 			console.log("");
@@ -218,17 +219,19 @@
 						<tr>
 
 							<td colspan="3" style="text-align: center;"><input
-								type="submit" value="Save" /></td>
+								type="image" src="./images/save.png" value="Save" /></td>
 						</tr>
 
 
 					</table>
 				</form>
 			</div>
-			<div id="gridContainer" class="centerd" >
-				<input type="button" value="ADD NEWS" id="addnewsButton" />
-				<table id="projectTable"></table>
+			<div id="gridContainer" class="centered" >
+			<div style="width:50%;margin:0 auto;">
+				<input type="image" style="margin-top:20px;" src="./images/addnews.png" value="ADD NEWS" id="addnewsButton" />
+				<table id="projectTable" class="centered"></table>
 				<div id="pagingDiv"></div>
+				</div>
 			</div>
 		</div>
 	</div>

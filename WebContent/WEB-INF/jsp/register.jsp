@@ -237,14 +237,14 @@ display:block;
 
 <div id="volunteer-form">
                 <div id="form_wrapper">
-                    <form id="volunteerForm" name="volunteerForm" method="post" action="" autocomplete="off">
+                    <form id="registerForm" name="registerForm" method="post" action="" autocomplete="off">
 
                             <table class="inputfield" style="margin-left: auto;margin-right: auto;">
                                 
                                 <tr>
                                     <td class="col-1">
                                         <label> Name
-                                        <span class="small">Add Your Name</span>
+                                        <span class="small">Enter Your Name</span>
                                         </label>
                                     </td>
                                     <td class="col-2">
@@ -255,7 +255,7 @@ display:block;
                                 <tr>
                                     <td class="col-1">
                                         <label >Phone
-                                        <span class="small">Add Your Phone Number</span>
+                                        <span class="small">Enter Your Phone Number</span>
                                         </label>
                                     </td>
                                     <td class="col-2">
@@ -300,7 +300,7 @@ display:block;
                         </table>
                        
                         <center>
-                          <input type="image" src="./images/submit.png" value="SUBMIT" />
+                          <input type="image" src="./images/submit1.png" value="SUBMIT" />
                         </center>
                     </form>
                 </div>
