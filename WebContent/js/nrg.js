@@ -2,6 +2,9 @@
  * 
  */
 
+
+
+
 function getProducts(productType, format, toElement)
 {
 	$.ajax({

@@ -83,47 +83,48 @@ function submit()
 </div>
 <div class="body_container constrain centered ">
 
-<div class="centered width500px constrain">
+<div class="centered  constrain">
 
 <%--         Id : ${product.id} <br/> --%>
 <%--         Name : ${product.name} <br/> --%>
-
-<table>
-<tr>
-	<th>Sno</th>
-	<th>Name</th>
-	<th>Description</th>
-	<th>Price</th>
-	<th>Action</th>
+<c:if test="${!empty products}">
+<table class="mycarttable" class="border">
+<tr >
+	<th class="border">Sno</th>
+	<th class="border">Name</th>
+<!-- 	<th>Description</th> -->
+	<th class="border">Price</th>
+	<th class="border">Action</th>
 </tr>
-
+<c:set scope="page" var="id" value="0" ></c:set>
  <c:forEach items="${products}" var="product">
- <tr id="row_${product.id}">
-	<td>Sno</td>
+ <tr id="row_${product.id}" >
+ <c:set scope="page" var="id" value="${pageScope.id+1}" ></c:set>
+	<td>${pageScope.id}</td>
 	<td>${product.name}</td>
-	<td>${product.description}</td>
+<%-- 	<td>${product.description}</td> --%>
 	<td>${product.price}</td>
-	<td><input type="button" onclick="removeProduct(${product.id})"></td>
+	<td><input type="button" value="remove" onclick="removeProduct(${product.id})"></td>
 </tr>
  
  </c:forEach>
-  <c:if test="${not product.nocart}">
-   <tr colspan="5">
+  <c:if test="${!empty products}">
+   <tr >
 	
-	<td>Total : ${totalprice} </td>
+	<th colspan="2" class="border">Total :</th> <th colspan="2" class="border"> ${totalprice} </th>
 </tr>
 
-  <tr colspan="4">
+  <tr >
 	
-	<td><input type="button" value="SUBMIT" onclick="submit();"> </td>
-	<td><input type="button" value="CANCEL" onclick="clearCart();"> </td>
+
+	<td colspan="4"><center> <input type="button" value="SUBMIT" onclick="submit();" class="distence"><input type="button" value="CANCEL" onclick="clearCart();" class="distence"></center> </td>
 </tr>
   
   </c:if>
  
 </table>
-
-<c:if test="${product.nocart}">
+</c:if>
+<c:if test="${empty products}">
 
 <h3>Cart is empty !! </h3>
   

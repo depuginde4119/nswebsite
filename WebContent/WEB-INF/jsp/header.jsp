@@ -1,9 +1,50 @@
 
+<div class="loadingDiv" id="loadingDiv">
+   <img class="loadingImage" src="./images/Loading.gif" >
+   <input type="hidden" value="0" id="loadingImageCount">
+</div>
+<script>
+
+$.ajaxSetup({
+    beforeSend:function(){
+    	loadingStart();},
+    complete:function(){
+    	loadingStop(); }
+   	
+});
+
+function loadingStart()
+{
+	var loadingImagecount=$('#loadingImageCount').val();
+	loadingImagecount++;
+	$('#loadingImageCount').val(loadingImagecount);
+
+	$(".loadingDiv").show();
+}
+
+function loadingStop()
+{
+	
+	var loadingImagecount=$('#loadingImageCount').val();
+	loadingImagecount--;
+	$('#loadingImageCount').val(loadingImagecount);
+	
+	if(loadingImagecount <= 0)
+		{
+			$(".loadingDiv").hide();
+			$('#loadingImageCount').val(0);
+		}
+}
+
+
+</script>
+
+
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <div id="header">
 <div class="constrain centered grid grid-pad clearfix">
 	<div id="logo">
-	      <h1><span class="whiteText">NRG </span><span class="grayText"> Savers</span></h1>
+	      <h1 onclick="window.location.href='home'"><span class="whiteText">NRG </span><span class="grayText"> Savers</span></h1>
 	     
 	</div>
 	
@@ -38,15 +79,15 @@
           <li><a href="client">Our Clients</a></li>
           <li><a>Products</a>
           <ul>
-                  <li><a href="product?mc=1">LED Bulbs</a></li>
-                  <li><a href="product?mc=2">INSOLATION </a></li>
-                  <li><a href="product?mc=3">WINDOWS</a></li>
-                  <li><a href="product?mc=4">HEATERS</a></li>
+                  <li><a href="product?mc=1">Led Bulbs</a></li>
+                  <li><a href="product?mc=2">Insolation </a></li>
+                  <li><a href="product?mc=3">Windows</a></li>
+                  <li><a href="product?mc=4">Heaters</a></li>
                   <c:if test="${!empty sessionScope.loggedUser}">
                  		 <li><a href="product?mc=mycart">My Cart</a></li>
                   </c:if>
                 </ul></li>
-          <li><a href="professional">Professional Installation</a>
+          <li><a href="profesionallist">Professional Installation</a>
           
           </li>
           <li><a >Finance</a>
@@ -78,7 +119,7 @@
 		                 		 <li><a href="product?mc=mycart">My Cart</a></li>
 		                  </c:if>
 		                </ul></li>
-		          <li><a href="professional">Professional Installation</a>
+		          <li><a href="profesionallist">Professional Installation</a>
 		          
 		          </li>
 		         <li><a >Finance</a>

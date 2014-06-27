@@ -66,6 +66,15 @@
 	   <url-pattern>/cart</url-pattern>
   </servlet-mapping>
   
+       <servlet>
+	  <servlet-name>profesionallist</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/profesionallist.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>profesionallist</servlet-name>
+	   <url-pattern>/profesionallist</url-pattern>
+  </servlet-mapping>
+  
 
   
   <servlet>
