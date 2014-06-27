@@ -67,10 +67,10 @@ function addToCart(productId)
 <%--         Name : ${product.name} <br/> --%>
         
         <div class="width100 productDetails">
-	        <div class="leftGrid">
+	        <div class="leftGrid width30">
 	        	<img src="./images/product/${product.image}" class="width100">
 	        </div>
-        <div class="rightGrid productDetails">
+        <div class="rightGrid productDetails width70">
            <div class="name"> Name : ${product.name}</div>
            <div class="description"> Description</div> 
            <div> ${product.description}</div>
