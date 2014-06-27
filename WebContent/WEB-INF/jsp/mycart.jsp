@@ -79,7 +79,7 @@ function submit()
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 
 <div class="bodyContent">
-<div class="constrain banner centered product_banner " >
+<div class="constrain banner centered cart_banner " >
 </div>
 <div class="body_container constrain centered ">
 

@@ -20,12 +20,14 @@ body
 
 /* ----------------------------------------------Header-------------------------------------*/
 
-#header{
+#header
+{
 	padding	:0px;
 	margin:0px;
 	z-index:1000;
-	background-color:#6DC63F;
-	height: 110px;
+	background-color:#8DC63F;
+	height: 107px;
+	font-family: 'Ubuntu', sans-serif;
 	}
 
 #header #logo{
@@ -42,7 +44,8 @@ body
 	}
 
 #header #logo h1{
-	font-size:36px;
+	margin-top:8px;
+	font-size:2.3em;
 	text-transform:uppercase;
 	}
 	
@@ -330,7 +333,7 @@ footer .sub-footer {
 }
  footer .sub-footer p {
     float: left;
-    padding: 10px 0px;
+ 
 }
 footer .sub-footer a {
     text-decoration: none;
@@ -412,12 +415,53 @@ footer .connect .twitter
 
 .aboutus_banner
 {
-	background-image: url("../images/banner/about_banner.png");
+	background-image: url("../images/banner/aboutus-banner.jpg");
 }
 .search_banner
 {
 	background-image: url("../images/banner/search-banner.jpg");
 }
+
+.finance_banner
+{
+	background-image: url("../images/banner/Finance-Banner.jpg");
+}
+
+.governament_banner
+{
+	background-image: url("../images/banner/govt-Banner.jpg");
+}
+
+.news_banner
+{
+	background-image: url("../images/banner/news-banner.jpg");
+}
+
+.login_banner
+{
+	background-image: url("../images/banner/login-banner.jpg");
+}
+
+.register_banner
+{
+	background-image: url("../images/banner/register-banner.jpg");
+}
+
+.client_banner
+{
+	background-image: url("../images/banner/client-banner.jpg");
+}
+
+.checkout_banner
+{
+	background-image: url("../images/banner/checkout-banner.jpg");
+}
+
+.cart_banner
+{
+	background-image: url("../images/banner/cart-banner.jpg");
+}
+
 
 
 .body_container
@@ -426,6 +470,7 @@ footer .connect .twitter
 	margin-top:20px;
 	margin-bottom:2px;
 	min-height:400px;
+	position: relative;
 }
 .contact_us_map
 {
@@ -591,6 +636,18 @@ div.error
 	border-bottom: 1px solid #F5F5F5;
 	line-height: 1.2;
 	color: rgba(140, 147, 140, 1);
+	
+}
+
+.body_container h3
+{
+	font-style: normal;
+	font-size: 1.7em;
+	padding: 0px 0px 0.25em;
+	margin: 1.5em 0px 0.5em;
+	border-bottom: 1px solid #F5F5F5;
+	line-height: 1.2;
+	color: rgba(125, 203, 114, 1);
 	
 }
 

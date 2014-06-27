@@ -33,7 +33,7 @@ div.wrapper{
 %>
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
-<div class="constrain centered">
+<div class="constrain centered body_container">
 <div class="wrapper">
 <div id="featured_slide">
    <div id="slider" class="nivoSlider"> <img src="./images/slider/slider1.gif" alt="" /> <img src="./images/slider/slider2.gif" alt="" /> <img src="./images/slider/slider3.gif" alt="" /> <img src="./images/slider/slider4.gif" alt="" /> </div>
@@ -53,15 +53,15 @@ div.wrapper{
             closely integrated technologies.  Even the most energy efficient 
             products may not save energy if they are not installed correctly.  
             Craftsmanship is essential for the systems to function properly. 
-            <a href="#">More &raquo;</a>
+          
         </p>
        </div>
       <div class="fl_right" style="float: right;margin-right:50px;">
           <h3>Hear from our clients!</h3>
-          <iframe width="400" height="225" src="//www.youtube.com/embed/dbsxbmsYTL0" frameborder="0" ></iframe>
+          <iframe width="400" height="240" src="//www.youtube.com/embed/dbsxbmsYTL0" frameborder="0" ></iframe>
       </div>
 
-    <br class="clear" />
+<div style="clear: both"></div>
   </div>
 </div>
 </div>

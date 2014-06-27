@@ -70,16 +70,16 @@
         
           <ul class="col-1-5 connect">
 	          <li>
-	            <a href="/home" class="facebook"></a>
+	            <a href="https://www.facebook.com/" class="facebook" target="_blank"></a>
 	          </li>
 	          <li>
-	            <a href="" class="twitter"></a>
+	            <a href="https://twitter.com/" class="twitter" target="_blank"></a>
 	          </li>
 <!-- 	          <li> -->
 <!-- 	            <a href="/product"  class="google">Product</a> -->
 <!-- 	          </li> -->
 	          <li>
-	            <a href="" class="linkedin"> 	</a>
+	            <a href="https://in.linkedin.com/" class="linkedin" target="_blank"> 	</a>
 	          </li>
          </ul>
         
@@ -95,7 +95,7 @@
       <div  class="sub-footer clearfix">
         <div class="constrain centered grid-pad">
           <p>
-            <a href="/" title="Go to home">© 2014 <strong>DEEPU</strong></a>
+            <a href="/" title="Go to home">© 2014 <strong>Kanth</strong></a>
           </p>
           <a href="#">Back to top</a>
         </div>

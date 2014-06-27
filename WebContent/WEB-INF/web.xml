@@ -138,6 +138,33 @@
 	   <url-pattern>/profileEditView</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+	  <servlet-name>clientview</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/client.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>clientview</servlet-name>
+	   <url-pattern>/client</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	  <servlet-name>financeview</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/finance.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>financeview</servlet-name>
+	   <url-pattern>/finance</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	  <servlet-name>governmentaidsview</servlet-name>
+	  <jsp-file> /WEB-INF/jsp/governmentaids.jsp </jsp-file>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>governmentaidsview</servlet-name>
+	   <url-pattern>/government</url-pattern>
+  </servlet-mapping>
+  
   
   
   
