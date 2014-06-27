@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+
+.column {
+    display: block;
+    float: right;
+    width: 270px;
+    color: #666;
+}
+
+.content {
+    display: block;
+    float: left;
+    width: 800px;
+    color: #666;
+}
+
+.imgr {
+    float: right;
+    margin: 0px 0px 8px 8px;
+    clear: right;
+}
+
+div.wrapper {
+    text-align: left;
+}
+
+.column .subnav {
+    display: block;
+    width: 260px;
+    margin-bottom: 30px;
+    padding: 0px 0px 0px 10px;
+}
+
+
+/* div.wrapper h2 { */
+/*     margin: 0px 0px 15px; */
+/*     padding: 0px; */
+/*     font-size: 30px; */
+/*     font-weight: 700; */
+/*     line-height: normal; */
+/*     color: #8DC63F; */
+/* } */
+/* div.wrapper h3 { */
+/*     margin: 0px 0px 15px; */
+/*     padding: 0px; */
+/*     font-size: 26px; */
+/*     font-weight: 700; */
+/*     line-height: normal; */
+/*     color: #FBB040; */
+/* } */

@@ -132,7 +132,7 @@
 
 <%@include file="/WEB-INF/jsp/header.jsp" %>
 <div class="bodyContent">
-<div class="constrain contactus_banner banner centered " >
+<div class="constrain news_banner banner centered " >
 </div>
 <div class="contact_us_container constrain centered ">
 <div id="form_container" style="padding:50px;">
